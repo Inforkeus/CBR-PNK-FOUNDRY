@@ -3,19 +3,28 @@ import cbrRunner from "./module/sheets/runner.js";
 import cbrHunter from "./module/sheets/hunter.js";
 import { CbrSettings } from "./module/system.js";
 
-Hooks.once("init", function () {
+async function preloadHandlebarTemplates() {
+    const templatepaths = [
+      "systems/CBRPNK/templates/sheets/parts/augmentation.hbs",
+    ];
+    return foundry.applications.handlebars.loadTemplates(templatepaths);
+  }
+
+Hooks.once("init", async function () {
     console.log('Start');
 
-    Items.unregisterSheet("core",ItemSheet);
-    Items.registerSheet("cbr", cbrItem, {makeDefault: true});
+    foundry.documents.collections.Items.unregisterSheet("core",foundry.appv1.sheets.ItemSheet);
+    foundry.documents.collections.Items.registerSheet("cbr", cbrItem, {makeDefault: true});
 
-    Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("cbr", cbrRunner, {types: ["runner"],makeDefault: true});
-    Actors.registerSheet("cbr", cbrHunter, {types: ["hunter"],makeDefault: true});
+    foundry.documents.collections.Actors.unregisterSheet("core", ActorSheet);
+    foundry.documents.collections.Actors.registerSheet("cbr", cbrRunner, {types: ["runner"],makeDefault: true});
+    foundry.documents.collections.Actors.registerSheet("cbr", cbrHunter, {types: ["hunter"],makeDefault: true});
 
     CbrSettings.register();
 
-    success("Successfully initialized CBR+PNK!");
+    await preloadHandlebarTemplates();
+
+    console.log("Successfully initialized CBR+PNK!");
 });
 
 // Custom HandelBars
@@ -33,3 +42,7 @@ Handlebars.registerHelper('isBigger', function (max, value) {
 Handlebars.registerHelper('isEqual', function (max, value) {
     return value == max;
 });
+
+Handlebars.registerHelper('drawDice', function (dices) {
+    return [1,2].map( box => box <= dices ? `<i class="fa-solid fa-square-plus"></i>` : `<i class="fa-regular fa-square-plus"></i>` ).toLocaleString().replace(',','')
+}) 

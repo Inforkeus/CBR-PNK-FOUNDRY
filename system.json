@@ -9,16 +9,33 @@
       "url": "https://github.com/P4NTY/"
     }
   ],
-  "version": "0.97",
+  "version": "1.00",
   "compatibility": {
     "minimum": 11,
     "verified": 13,
     "maximum": 13
   },
   "esmodules": [ "main.js" ],
-  "styles": ["main.css" ],
+  "styles": [ "main.css" ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pl",
+      "name": "Polski",
+      "path": "lang/pl.json"
+    },
+    {
+      "lang": "ru",
+      "name": "РУССКИЙ",
+      "path": "lang/ru.json"
+    }
+  ],
   "url": "https://github.com/P4NTY/CBR-PNK-FOUNDRY",
   "background": "systems/CBRPNK/assets/CBRPNK_splash.webp",
   "manifest": "https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/latest/download/system.json",
-  "download": "https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/download/0.97/CBRPNK.zip"
+  "download": "https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/download/1.00/CBRPNK.zip"
 }

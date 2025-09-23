@@ -21,8 +21,8 @@ export class CbrSettings {
 		});
 
 		game.settings.register("CBRPNK", "AugGlitchedCheck", {
-			name: `Glitched Augmentations work only if "active".`,
-			hint: "If this option is enabled Glitched Augmentations only considers Glitched status as Augmentations is checked.",
+			name: `Glitched Augmentations`,
+			hint: "Count GLITCH with Augmentations only when they are active.",
 			scope: "world",
 			config: true,
 			type: Boolean,

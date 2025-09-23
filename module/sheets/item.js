@@ -7,7 +7,7 @@ export default class cbrItem extends foundry.appv1.sheets.ItemSheet {
     }
 
     get template() {
-        return `systems/CBRPNK/templates/sheets/${this.item.type}.hbs`;
+        return `systems/CBRPNK/templates/sheets/items/${this.item.type}.hbs`;
     }
 
     getData() {
