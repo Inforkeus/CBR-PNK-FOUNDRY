@@ -37,8 +37,8 @@
     "DETAILS": "Szczegóły",
     "AGGRESSIVE": {
         "name": "AGRESYWNE",
-        "flaw":  "ZAWACHANIE",
-        "desc": "SIŁA ZASTRAŻANIE ZNISZCZENIE"
+        "flaw":  "ZAWAHANIE",
+        "desc": "SIŁA ZASTRASZANIE ZNISZCZENIE"
     },
     "SMART": {
        "name": "MĄDRE",
