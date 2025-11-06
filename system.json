@@ -15,8 +15,8 @@
     "verified": 13,
     "maximum": 13
   },
-  "esmodules": [ "main.js" ],
-  "styles": [ "main.css" ],
+  "esmodules": ["main.js"],
+  "styles": ["main.css"],
   "languages": [
     {
       "lang": "en",
@@ -35,7 +35,7 @@
     },
     {
       "lang": "pt-br",
-      "name": "Português",
+      "name": "Português (Brasil)",
       "path": "lang/pt-br.json"
     }
   ],
