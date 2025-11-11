@@ -18,6 +18,12 @@ Now available in English, Polish, ( Russian to be checked by more fluent speaker
 - Support i18n
 - Angel Roll Button between DEBT and CRED
 
+## Langs:
+- English
+- Polish - [Kiszu](https://github.com/P4NTY)
+- Russia - [Kiszu](https://github.com/P4NTY)
+- Português (Brasil) [uSirThunder](https://github.com/uSirThunder)
+
 ## To do:
 - Make Hacks card
 
