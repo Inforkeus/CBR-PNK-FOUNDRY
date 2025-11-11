@@ -15,8 +15,8 @@
     "verified": 13,
     "maximum": 13
   },
-  "esmodules": [ "main.js" ],
-  "styles": [ "main.css" ],
+  "esmodules": ["main.js"],
+  "styles": ["main.css"],
   "languages": [
     {
       "lang": "en",
@@ -32,6 +32,11 @@
       "lang": "ru",
       "name": "РУССКИЙ",
       "path": "lang/ru.json"
+    },
+    {
+      "lang": "pt-br",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-br.json"
     }
   ],
   "url": "https://github.com/P4NTY/CBR-PNK-FOUNDRY",
