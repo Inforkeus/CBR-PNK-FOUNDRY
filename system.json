@@ -9,7 +9,7 @@
       "url": "https://github.com/P4NTY/"
     }
   ],
-  "version": "1.00",
+  "version": "1.01",
   "compatibility": {
     "minimum": 11,
     "verified": 13,
@@ -34,7 +34,7 @@
       "path": "lang/ru.json"
     },
     {
-      "lang": "pt-br",
+      "lang": "pt-BR",
       "name": "Português (Brasil)",
       "path": "lang/pt-br.json"
     }

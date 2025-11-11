@@ -10,11 +10,12 @@
   --pink: 237, 17, 88;
   --wierd: 224, 38, 120;
   --dark: 47, 47, 47;
-  --font-small:  10px;
+  --font-small: 10px;
   --font-smed: 14px;
-  --font-med:  16px;
-  --font-huge:  20px;
+  --font-med: 16px;
+  --font-huge: 20px;
 }
+
 #pause,
 .GLICHED :is(h3, .text) {
   --gap-horizontal: 20px;
@@ -31,6 +32,7 @@
   --blend-color-4: transparent;
   --blend-color-5: transparent;
 }
+
 form.card section {
   margin: 20px 0px 0px 10px;
 }
@@ -42,7 +44,9 @@ form.card section {
   overflow: hidden;
   width: 95%;
 }
-.GLICHED h3::before, .GLICHED h3::after {
+
+.GLICHED h3::before,
+.GLICHED h3::after {
   content: attr(data-text);
   position: absolute;
   width: 100%;
@@ -51,200 +55,261 @@ form.card section {
   font: inherit;
   visibility: hidden;
 }
+
 .GLICHED h3::before {
   left: 2px;
   text-shadow: -2px 0 rgb(var(--wierd));
   clip: auto;
 }
+
 .GLICHED h3::after {
   left: -2px;
   text-shadow: -2px 0 rgb(var(--blue));
   clip: auto;
 }
+
 #pause,
 .GLICHED h3::before {
   visibility: visible;
   animation: glitch-anim-2 4s infinite linear alternate-reverse;
 }
+
 .GLICHED h3::after {
   visibility: visible;
   animation: glitch-anim 2.5s infinite linear alternate-reverse;
 }
+
 @keyframes glitch-anim {
   0% {
     clip: rect(29px, 9999px, 11px, 0);
   }
+
   4.16666667% {
     clip: rect(11px, 9999px, 21px, 0);
   }
+
   8.33333333% {
     clip: rect(18px, 9999px, 1px, 0);
   }
+
   12.5% {
     clip: rect(17px, 9999px, 5px, 0);
   }
+
   16.66666667% {
     clip: rect(3px, 9999px, 27px, 0);
   }
+
   20.83333333% {
     clip: rect(20px, 9999px, 25px, 0);
   }
+
   25% {
     clip: rect(25px, 9999px, 19px, 0);
   }
+
   29.16666667% {
     clip: rect(12px, 9999px, 151px, 0);
   }
+
   33.33333333% {
     clip: rect(29px, 9999px, 1px, 0);
   }
+
   37.5% {
     clip: rect(24px, 9999px, 31px, 0);
   }
+
   41.66666667% {
     clip: rect(9px, 9999px, 1px, 0);
   }
+
   45.83333333% {
     clip: rect(1px, 9999px, 17px, 0);
   }
+
   50% {
     clip: rect(3px, 9999px, 27px, 0);
   }
+
   54.16666667% {
     clip: rect(17px, 9999px, 151px, 0);
   }
+
   58.33333333% {
     clip: rect(15px, 9999px, 10px, 0);
   }
+
   62.5% {
     clip: rect(1px, 9999px, 15px, 0);
   }
+
   66.66666667% {
     clip: rect(10px, 9999px, 3px, 0);
   }
+
   70.83333333% {
     clip: rect(27px, 9999px, 117px, 0);
   }
+
   75% {
     clip: rect(2px, 9999px, 5px, 0);
   }
+
   79.16666667% {
     clip: rect(4px, 9999px, 13px, 0);
   }
+
   83.33333333% {
     clip: rect(8px, 9999px, 44px, 0);
   }
+
   87.5% {
     clip: rect(13px, 9999px, 14px, 0);
   }
+
   91.66666667% {
     clip: rect(21px, 9999px, 31px, 0);
   }
+
   95.83333333% {
     clip: rect(0px, 9999px, 33px, 0);
   }
+
   100% {
     clip: rect(9px, 9999px, 148px, 0);
   }
 }
+
 @keyframes glitch-anim-2 {
   6.66666667% {
     clip: rect(43px, 9999px, 105px, 0);
   }
+
   10% {
     clip: rect(5px, 9999px, 0px, 0);
   }
+
   13.33333333% {
     clip: rect(16px, 9999px, 14px, 0);
   }
+
   16.66666667% {
     clip: rect(12px, 9999px, 106px, 0);
   }
+
   20% {
     clip: rect(1px, 9999px, 189px, 0);
   }
+
   23.33333333% {
     clip: rect(20px, 9999px, 41px, 0);
   }
+
   26.66666667% {
     clip: rect(30px, 9999px, 176px, 0);
   }
+
   30% {
     clip: rect(12px, 9999px, 32px, 0);
   }
+
   33.33333333% {
     clip: rect(22px, 9999px, 155px, 0);
   }
+
   36.66666667% {
     clip: rect(14px, 9999px, 40px, 0);
   }
+
   40% {
     clip: rect(25px, 9999px, 86px, 0);
   }
+
   43.33333333% {
     clip: rect(13px, 9999px, 94px, 0);
   }
+
   46.66666667% {
     clip: rect(1px, 9999px, 139px, 0);
   }
+
   50% {
     clip: rect(14px, 9999px, 76px, 0);
   }
+
   53.33333333% {
     clip: rect(2px, 9999px, 124px, 0);
   }
+
   56.66666667% {
     clip: rect(6px, 9999px, 70px, 0);
   }
+
   60% {
     clip: rect(9px, 9999px, 140px, 0);
   }
+
   63.33333333% {
     clip: rect(7px, 9999px, 151px, 0);
   }
+
   66.66666667% {
     clip: rect(1px, 9999px, 131px, 0);
   }
+
   70% {
     clip: rect(21px, 9999px, 183px, 0);
   }
+
   73.33333333% {
     clip: rect(11px, 9999px, 60px, 0);
   }
+
   76.66666667% {
     clip: rect(91px, 9999px, 28px, 0);
   }
+
   80% {
     clip: rect(14px, 9999px, 193px, 0);
   }
+
   83.33333333% {
     clip: rect(2px, 9999px, 150px, 0);
   }
+
   86.66666667% {
     clip: rect(3px, 9999px, 131px, 0);
   }
+
   90% {
     clip: rect(17px, 9999px, 45px, 0);
   }
+
   93.33333333% {
     clip: rect(18px, 9999px, 37px, 0);
   }
+
   96.66666667% {
     clip: rect(9px, 9999px, 46px, 0);
   }
+
   100% {
     clip: rect(38px, 9999px, 15px, 0);
   }
 }
+
 .runnerCard p {
   font-size: var(--font-small);
   margin: 0;
   color: rgb(var(--dark));
 }
+
 .runnerCard .approach p,
 .runnerCard.black p {
   color: rgb(var(--gray));
 }
+
 .approach {
   display: flex;
   flex-direction: column;
@@ -253,11 +318,13 @@ form.card section {
   position: relative;
   width: 400px;
 }
+
 .approach h3 {
   padding: 5px;
   grid-area: title;
   margin: 0;
 }
+
 section.skills .label,
 .approach .label {
   text-orientation: upright;
@@ -269,7 +336,8 @@ section.skills .label,
   width: fit-content;
   margin: 0;
 }
-.approach > div {
+
+.approach>div {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -279,12 +347,14 @@ section.skills .label,
   color: rgb(var(--white));
   clip-path: polygon(20% 0%, 95% 0%, 100% 40%, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 0);
 }
+
 .approach .texts {
   grid-area: text;
   display: flex;
   justify-content: space-between;
   padding-left: 5px;
 }
+
 .dots {
   grid-area: dots;
   display: flex;
@@ -300,28 +370,35 @@ section.skills .label,
 .approach .GLICHED {
   filter: invert(0.8);
 }
+
 .dots .box {
   display: inline-block;
   border: 7px solid rgb(var(--black));
   text-align: center;
   WIDTH: 34px;
 }
+
 .skills .dots .box {
   width: 25px;
 }
+
 .dots .box::after {
   content: "+";
   color: rgb(var(--yellow));
   font-weight: bold;
 }
+
 section.skills {
   margin-left: 20px;
   position: relative;
   width: 400px;
 }
-section.skills h3, section.skills p {
+
+section.skills h3,
+section.skills p {
   margin: 0;
 }
+
 section.skills h3 {
   font-size: var(--font-med);
   width: 1fr;
@@ -332,7 +409,7 @@ section.skills p strong {
   color: rgb(var(--dark));
 }
 
-section.skills > div {
+section.skills>div {
   display: flex;
   gap: 10px;
   margin-left: 20px;
@@ -342,6 +419,7 @@ section.skills > div {
   align-items: center;
   justify-content: space-between;
 }
+
 section.skills .dots {
   gap: 5px;
 }
@@ -350,10 +428,12 @@ section.skills .dots {
   width: 420px;
   padding: 5px;
 }
+
 .augmentations h3 {
   font-weight: normal;
   margin: 0;
 }
+
 .augmentations .text {
   display: flex;
   justify-content: space-between;
@@ -361,17 +441,20 @@ section.skills .dots {
   padding: 3px 0px 5px 30px;
   width: -webkit-fill-available;
 }
-.augmentations input[type="checkbox"]:checked ~ .desc {
+
+.augmentations input[type="checkbox"]:checked~.desc {
   display: block;
   padding: 0 20px 0 5px;
   background: rgb(var(--wierd));
   text-align: justify;
   border-left: 5px solid;
 }
+
 @keyframes agu-gl {
   form {
     background-color: rgb(var(--red));
   }
+
   to {
     background-color: rgb(var(--yellow));
   }
@@ -379,14 +462,15 @@ section.skills .dots {
 
 .augmentations .GLICHED .text,
 .hunted label.angleOpen,
-.hunted h1{
-    color: rgb(var(--yellow));
-    animation: linear 1s infinite alternate agu-gl;
+.hunted h1 {
+  color: rgb(var(--yellow));
+  animation: linear 1s infinite alternate agu-gl;
 }
 
 .augmentations .GLICHED .text p {
   color: rgb(var(--red));
 }
+
 section.gear {
   display: grid;
   grid-template-areas:
@@ -395,47 +479,57 @@ section.gear {
   padding: 5px;
   gap: 5px;
 }
-section.gear > h3 {
+
+section.gear>h3 {
   font-weight: normal;
   display: flex;
   align-content: center;
   align-items: center;
   justify-content: center;
 }
+
 section.gear div {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
 }
-section.gear div:not(.stack, .load) > input {
+
+section.gear div:not(.stack, .load)>input {
   display: none;
 }
+
 section.gear .box {
   display: inline-block;
   width: 15px;
   height: 15px;
   border: 1px solid;
 }
-section.gear input:checked ~ label .box {
+
+section.gear input:checked~label .box {
   background: rgb(var(--yellow));
   transition: all 0.2s linear;
   transform: rotate(45deg);
 }
+
 section.gear label {
   padding-left: 5px;
   font-size: var(--font-smed);
   display: flex;
   gap: 5px;
 }
+
 section.gear p {
   display: flex;
   align-items: center;
 }
+
 .load input {
   position: relative;
 }
-.load input:nth-child(4)::after, .load input:nth-child(6)::after {
+
+.load input:nth-child(4)::after,
+.load input:nth-child(6)::after {
   content: "";
   border-right: 3px solid;
   position: absolute;
@@ -443,6 +537,7 @@ section.gear p {
   top: 0;
   right: -5px;
 }
+
 .stress {
   display: flex;
   align-items: center;
@@ -454,6 +549,7 @@ section.gear p {
 .stress p {
   padding: 5px
 }
+
 .stress p.active {
   animation: linear 1s infinite alternate agu-gl;
 }
@@ -461,6 +557,7 @@ section.gear p {
 .stress input {
   display: none;
 }
+
 .stress label {
   display: flex;
   width: 26px;
@@ -471,12 +568,14 @@ section.gear p {
   align-items: center;
   justify-content: center;
 }
-.stress input:checked + label {
+
+.stress input:checked+label {
   width: 26px;
   height: 26px;
   background: rgb(var(--blue));
 }
-.stress input:checked + label::before {
+
+.stress input:checked+label::before {
   font-family: "Font Awesome 6 Pro";
   content: "\f0e7";
   transform: rotate(-45deg);
@@ -485,31 +584,39 @@ section.gear p {
   color: rgb(var(--yellow));
   font-weight: 900;
 }
-.stress > label:last-of-type {
+
+.stress>label:last-of-type {
   border: 4px solid rgb(var(--yellow));
   display: block;
   width: 26px;
   height: 26px;
 }
+
 .skills span.active {
   font-weight: bold;
   color: rgb(var(--red));
 }
+
 .harm {
   position: relative;
   width: 420px;
 }
+
 .harm ul {
   list-style-type: decimal;
 }
+
 .harm input[type="text"] {
   border: 0px;
   border-bottom: 1px solid;
 }
+
 .harm input[type="checkbox"] {
   transform: rotate(45deg);
 }
-.harm h3, .harm ul {
+
+.harm h3,
+.harm ul {
   font-weight: normal;
   margin: 0;
 }
@@ -534,82 +641,99 @@ form.runnerCard {
 }
 
 input[type="text"] {
-    display: inline-block;
-    height: 20px;
+  display: inline-block;
+  height: 20px;
 }
+
 .editor .editor-content {
-    min-height: 100px;
+  min-height: 100px;
 }
+
 .editor-content p {
   font-size: var(--font-med);
 }
 
-.augmentations > div > input[type="checkbox"] {position: absolute;left: 0;}
+.augmentations>div>input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+}
 
-.augmentations > div { position: relative; }
+.augmentations>div {
+  position: relative;
+}
 
-label.name {width: 100%;}
+label.name {
+  width: 100%;
+}
 
 .art,
 .persona {
-    position: relative;
+  position: relative;
 }
 
 .art h1,
 .persona h1 {
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-    background: rgba(var(--black),0.66);
-    border:  none;
-    margin: 0;
-    padding: 20px 0;
-    backdrop-filter: blur(5px);
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background: rgba(var(--black), 0.66);
+  border: none;
+  margin: 0;
+  padding: 20px 0;
+  backdrop-filter: blur(5px);
 }
 
 .art h1 input,
 .persona h1 input {
-    color: rgb(var(--white));
-    border: none;
-    padding: 20px;
-    border-bottom: 1px solid rgb(var(--gray));
+  color: rgb(var(--white));
+  border: none;
+  padding: 20px;
+  border-bottom: 1px solid rgb(var(--gray));
 }
 
-.roll > div {
+.roll>div {
   display: flex;
-  align-items: center;
 }
+
 .roll input {
   display: none;
 }
+
 .roll label {
   border: 1px solid rgb(var(--gray));
   padding: 5px 10px;
   background: rgb(var(--blue));
   text-align: center;
 }
-.roll input:checked ~ label {
+
+.roll input:checked~label {
   background: rgb(var(--yellow));
 }
-.roll input:checked + label {
+
+.roll input:checked+label {
   background: rgb(var(--blue));
   flex-grow: 1;
 }
+
 section.roll {
   display: grid;
 }
+
 .threat .label,
 .efect .label {
   width: min-content;
 }
+
 .efect label {
   background: rgb(var(--yellow));
 }
-.efect input:checked ~ label {
+
+.efect input:checked~label {
   background: rgb(var(--wierd));
 }
-.efect input:checked + label {
+
+.efect input:checked+label {
   background: rgb(var(--yellow));
   flex-grow: 1;
 }
@@ -618,11 +742,13 @@ section.roll {
   background: rgb(var(--red));
   color: rgb(var(--white));
 }
-.threat input:checked ~ label {
+
+.threat input:checked~label {
   background: rgb(var(--gray));
   color: rgb(var(--black));
 }
-.threat input:checked + label {
+
+.threat input:checked+label {
   background: rgb(var(--red));
   flex-grow: 1;
   color: rgb(var(--white));
@@ -655,26 +781,26 @@ li.chat-message.message.flexcol:has(.runner) {
 
 li.chat-message.message.flexcol:has(.runner) header {
   display: none;
-  
+
 }
 
 li.chat-message.message.flexcol:has(.runner) .situation {
-  position:absolute;
+  position: absolute;
   top: 0;
-  background: rgba(var(--black),.66);
+  background: rgba(var(--black), .66);
   backdrop-filter: blur(5px);
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
-li.chat-message.message.flexcol .runner > .text {
+li.chat-message.message.flexcol .runner>.text {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(var(--black),.66);
-  border:  none;
+  background: rgba(var(--black), .66);
+  border: none;
   margin: 0;
   padding: 0px 5px 7px;
   backdrop-filter: blur(5px);
@@ -684,6 +810,7 @@ li.chat-message.message.flexcol:has(.runner) .result {
   display: flex;
   align-items: center;
 }
+
 li.chat-message.message.flexcol:has(.runner) .result h3 {
   flex-grow: 1;
 }
@@ -715,7 +842,7 @@ li.chat-message.message.flexcol .dice span.GLICHED {
   color: rgb(var(--yellow));
 }
 
-.buttons button{
+.buttons button {
   margin: 0;
   border-radius: 0;
 }
@@ -723,9 +850,11 @@ li.chat-message.message.flexcol .dice span.GLICHED {
 .resistRoll {
   background: rgb(var(--wierd));
 }
+
 .actionRoll {
   background: rgb(var(--yellow));
 }
+
 .breathRoll {
   background: rgb(var(--blue));
 }
@@ -742,7 +871,9 @@ h1 input[type="text"],
   color: rgb(var(--black));
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   border-bottom: 0px;
 }
 
@@ -763,8 +894,8 @@ input[type="text"],
   position: absolute;
   left: 0;
   right: 0;
-  background: rgba(var(--black),0.66);
-  border:  none;
+  background: rgba(var(--black), 0.66);
+  border: none;
   margin: 0;
   backdrop-filter: blur(5px);
 }
@@ -779,6 +910,7 @@ input[type="text"],
 .angle {
   bottom: calc(100% - 20px);
 }
+
 .angle.expan {
   bottom: auto;
   z-index: 1;
@@ -802,7 +934,7 @@ strong {
   font-weight: bold;
 }
 
-.roll > div:first-child > div {
+.roll>div:first-child>div {
   width: 50%;
   display: flex;
   align-items: center;
@@ -817,51 +949,56 @@ input[name="system.angle.for"] {
   background: rgb(var(--gray));
 }
 
-em {font-style: italic;color: rgb(var(--yellow));}
-
-.bar {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    padding: 20px;
+em {
+  font-style: italic;
+  color: rgb(var(--yellow));
 }
 
-.bar > * {
-    height: 20px;
-    border: 2px solid;
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 20px;
+}
+
+.bar>* {
+  height: 20px;
+  border: 2px solid;
 }
 
 .bar label {
-    color: rgb(var(--white));
+  color: rgb(var(--white));
 }
 
-.bar input:checked + label {
-    background: rgb(var(--yellow));
-    color: rgb(var(--red));
+.bar input:checked+label {
+  background: rgb(var(--yellow));
+  color: rgb(var(--red));
 }
 
-.bar > div {
-    width: 33%;
-    background: rgb(var(--black));
-    color: rgb(var(--white));
-    text-align: center;
+.bar>div {
+  width: 33%;
+  background: rgb(var(--black));
+  color: rgb(var(--white));
+  text-align: center;
 }
 
 .bar .DEBT {
   background: linear-gradient(90deg, rgb(var(--red)) 0%, rgb(var(--red)) calc(var(--progress)*33.33%), rgb(var(--black)) calc(var(--progress)*34.33%), rgb(var(--black)) 100%);
   color: rgb(var(--yellow));
 }
+
 .bar .CRED {
   background: linear-gradient(270deg, rgb(var(--yellow)) 0%, rgb(var(--yellow)) calc(var(--progress)*33.33%), rgb(var(--black)) calc(var(--progress)*34.33%), rgb(var(--black)) 100%);
   color: rgb(var(--blue));
 }
+
 .tox.tox-tinymce {
   min-height: 200px;
 }
 
 button.load {
-    background: rgb(var(--yellow));
-    font-size: var(--font-small);
+  background: rgb(var(--yellow));
+  font-size: var(--font-small);
 }
 
 .harm .track {
@@ -869,13 +1006,11 @@ button.load {
   width: 100px;
   border: 1px solid rgb(var(--black));
   height: 20px;
-  background: linear-gradient(
-    90deg,
-    rgb(var(--wierd)) 0%,
-    rgb(var(--wierd)) calc(var(--value)/var(--max)*100%),
-    transparent calc(var(--value)/var(--max)*100%),
-    transparent 100%
-    );
+  background: linear-gradient(90deg,
+      rgb(var(--wierd)) 0%,
+      rgb(var(--wierd)) calc(var(--value)/var(--max)*100%),
+      transparent calc(var(--value)/var(--max)*100%),
+      transparent 100%);
   text-align: center;
 }
 
@@ -883,17 +1018,15 @@ button.load {
   border: 2px solid;
   min-width: 70px;
   justify-content: center;
-  background: linear-gradient(
-      90deg,
+  background: linear-gradient(90deg,
       rgb(var(--yellow)) 0%,
       rgb(var(--yellow)) calc(var(--stack)/var(--max)*100%),
       transparent calc(var(--stack)/var(--max)*100%),
-      transparent 100%
-  );
+      transparent 100%);
 }
 
 #sidebar {
-  background: rgba(var(--black),.33);
+  background: rgba(var(--black), .33);
   backdrop-filter: blur(5px);
 }
 
@@ -915,23 +1048,26 @@ textarea#chat-message {
 
 figcaption {
   font-family: "Tiny5";
-  background:  rgba(var(--red),.5)
+  background: rgba(var(--red), .5)
 }
 
-#pause img.fa-spin, #logo {
+#pause img.fa-spin,
+#logo {
   display: none;
 }
 
 div#breaktime-app section.window-content {
   background: rgb(var(--red));
 }
+
 div#breaktime-app section.window-content .fas {
   color: rgb(var(--yellow));
 }
 
 .gm-screen-container.window-content.tab.active {
-  background: rgba(var(--black),0.66);
+  background: rgba(var(--black), 0.66);
 }
+
 .gm-screen-app .gm-screen-actions.tabs .meta-actions button,
 .gm-screen-app .gm-screen-actions.tabs .gm-screen-tabs .item:not(.active),
 .gm-screen-app .gm-screen-actions .gm-screen-button {
@@ -949,7 +1085,7 @@ div#breaktime-app section.window-content .fas {
 form.itemCard {
   display: grid;
   gap: 20px;
-  background: rgba(var(--red),.8);
+  background: rgba(var(--red), .8);
   grid-template-columns: 1fr 1fr;
 }
 
@@ -957,7 +1093,7 @@ form.itemCard .art {
   height: fit-content;
 }
 
-form.itemCard  input[type="text"] {
+form.itemCard input[type="text"] {
   font-size: var(--font-huge);
 }
 
@@ -978,7 +1114,7 @@ form.itemCard  input[type="text"] {
   border: none;
 }
 
-.stack .track > div {
+.stack .track>div {
   display: inline-block;
   aspect-ratio: 1;
   width: 40px;
@@ -997,7 +1133,7 @@ form.itemCard  input[type="text"] {
 .rank {
   display: grid;
   grid-template-areas:
-      ". . .";
+    ". . .";
   gap: 20px;
 }
 
@@ -1008,7 +1144,7 @@ form.itemCard  input[type="text"] {
   background: rgb(var(--red));
   clip-path: polygon(20% 0%, 95% 0%, 100% 40%, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 0);
   padding: 5px 10px;
-  
+
 }
 
 .title span {
@@ -1037,7 +1173,7 @@ form.hunterCard {
 form.hunterCard header img {
   border: 10px solid rgb(var(--red));
   border-radius: 0;
-  
+
 }
 
 form.hunterCard header input[name="name"] {
@@ -1059,6 +1195,7 @@ form.hunterCard header textarea {
 .hunterCard textarea {
   color: rgb(var(--white));
 }
+
 .hunterCard .persona .editor-content {
   padding: 0 5px;
 }
@@ -1071,37 +1208,39 @@ form.hunterCard header textarea {
   position: absolute;
   top: 7px;
   display: inline-block;
-  width: 17px; height: 17px;
+  width: 17px;
+  height: 17px;
   background: rgb(var(--white));
   border: 1px solid rgb(var(--black));
   transform: rotate(45deg);
 }
 
-.RANK3 input:checked + label {
+.RANK3 input:checked+label {
   background: rgb(var(--yellow));
 }
 
-.rank > div > .skill{
+.rank>div>.skill {
   display: flex;
   margin: 5px 0;
   align-items: center;
 }
 
-.rank > div > .skill input[type="checkbox"],
+.rank>div>.skill input[type="checkbox"],
 .RANK3 input[type="checkbox"] {
   display: none;
 }
 
-.rank > div > .skill label {
+.rank>div>.skill label {
   display: inline-block;
-  width: 17px; height: 15px;
+  width: 17px;
+  height: 15px;
   background: rgb(var(--white));
   border: 1px solid rgb(var(--black));
   transform: rotate(45deg);
 }
 
 
-.rank > div > .skill input[type="text"]{
+.rank>div>.skill input[type="text"] {
   color: rgb(var(--white));
   border: 0;
   border-bottom: 1px solid rgb(var(--red));
@@ -1114,7 +1253,8 @@ form.hunterCard header textarea {
   gap: 5px;
   justify-content: center;
 }
-.hunterCard .track > div {
+
+.hunterCard .track>div {
   width: 20px;
   height: 30px;
   background: rgb(var(--red));
@@ -1122,7 +1262,7 @@ form.hunterCard header textarea {
   clip-path: polygon(80% 0%, 100% 20%, 100% 100%, 20% 100%, 0% 80%, 0 0);
 }
 
-.tracks > div {
+.tracks>div {
   border: 5px solid rgb(var(--white));
   width: 80%;
   display: flex;
@@ -1162,7 +1302,7 @@ form.hunterCard header textarea {
   padding: 15px;
 }
 
-.rank > div > .skill input:checked + label {
+.rank>div>.skill input:checked+label {
   background: rgb(var(--red));
 }
 
@@ -1174,34 +1314,39 @@ form.hunterCard header textarea {
   padding: 15px;
 }
 
-.rank > div > .skill input:checked + label {
+.rank>div>.skill input:checked+label {
   background: rgb(var(--red));
 }
 
-.hunterCard .editor-content p{
+.hunterCard .editor-content p {
   color: rgb(var(--white));
 }
 
-.hunterCard .track[data-value="1"] > div:nth-child(-n+1) {
-  background: rgb(var(--yellow)) !important;
-}
-.hunterCard .track[data-value="2"] > div:nth-child(-n+2) {
-  background: rgb(var(--yellow)) !important;
-}
-.hunterCard .track[data-value="3"] > div:nth-child(-n+3) {
-  background: rgb(var(--yellow)) !important;
-}
-.hunterCard .track[data-value="4"] > div:nth-child(-n+4) {
-  background: rgb(var(--yellow)) !important;
-}
-.hunterCard .track[data-value="5"] > div:nth-child(-n+5) {
-  background: rgb(var(--yellow)) !important;
-}
-.hunterCard .track[data-value="6"] > div:nth-child(-n+6) {
+.hunterCard .track[data-value="1"]>div:nth-child(-n+1) {
   background: rgb(var(--yellow)) !important;
 }
 
-.SR input:checked + label {
+.hunterCard .track[data-value="2"]>div:nth-child(-n+2) {
+  background: rgb(var(--yellow)) !important;
+}
+
+.hunterCard .track[data-value="3"]>div:nth-child(-n+3) {
+  background: rgb(var(--yellow)) !important;
+}
+
+.hunterCard .track[data-value="4"]>div:nth-child(-n+4) {
+  background: rgb(var(--yellow)) !important;
+}
+
+.hunterCard .track[data-value="5"]>div:nth-child(-n+5) {
+  background: rgb(var(--yellow)) !important;
+}
+
+.hunterCard .track[data-value="6"]>div:nth-child(-n+6) {
+  background: rgb(var(--yellow)) !important;
+}
+
+.SR input:checked+label {
   text-decoration: line-through
 }
 
@@ -1218,13 +1363,33 @@ form.runnerCard header {
   max-width: 440px;
 }
 
-form.runnerCard .approach { grid-area: 1 / 2 / 2 / 3; }
-form.runnerCard header { grid-area: 1 / 1 / 3 / 2; }
-form.runnerCard .skills { grid-area: 2 / 2 / 3 / 3; }
-form.runnerCard .stress { grid-area: 3 / 1 / 4 / 2; }
-form.runnerCard .augmentations { grid-area: 4 / 1 / 5 / 2; }
-form.runnerCard .harm { grid-area: 5 / 1 / 6 / 2; }
-form.runnerCard .gear { grid-area: 3 / 2 / 6 / 3; }
+form.runnerCard .approach {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+form.runnerCard header {
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+form.runnerCard .skills {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+form.runnerCard .stress {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+form.runnerCard .augmentations {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+form.runnerCard .harm {
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+form.runnerCard .gear {
+  grid-area: 3 / 2 / 6 / 3;
+}
 
 li.chat-message.message.flexcol.whisper.blind {
   filter: hue-rotate(45deg);
@@ -1242,6 +1407,7 @@ form.black.runnerCard {
 
 form.black.runnerCard .roll label {
   color: rgb(var(--dark));
+  display: block;
 }
 
 form.black.runnerCard [type="text"] {
@@ -1257,29 +1423,39 @@ form.runnerCard .headerButton {
   align-content: center;
   align-items: center;
 }
+
 form.runnerCard .headerButton i.fa-solid {
   font-size: var(--font-huge);
   padding: 0 5px;
 }
 
 @keyframes highlight {
-  0%   { background-color: rgb(var(--yellow)); }
-  50%  { background-color: rgb(var(--wierd));  }
-  100% { background-color: rgb(var(--blue));   }
+  0% {
+    background-color: rgb(var(--yellow));
+  }
+
+  50% {
+    background-color: rgb(var(--wierd));
+  }
+
+  100% {
+    background-color: rgb(var(--blue));
+  }
 }
+
 .augCard.GLICHED .header,
-.glichedDice input:checked ~ label,
-input[name="addDice"]:checked + label:not(:nth-child(10)) {
-    animation: highlight 2s linear 0s infinite alternate;
+.glichedDice input:checked~label,
+input[name="addDice"]:checked+label:not(:nth-child(10)) {
+  animation: highlight 2s linear 0s infinite alternate;
 }
 
 .gear .stack {
-    color: rgb(var(--wierd));
-    margin-left: 5px;
+  color: rgb(var(--wierd));
+  margin-left: 5px;
 }
 
 .runner.overload {
-    min-height: 330px;
+  min-height: 330px;
 }
 
 tr[data-gliched="2"] .dots .box,
@@ -1291,7 +1467,7 @@ form.runnerCard header img {
   min-height: 200px;
 }
 
-.message-content :is(h1,h3){
+.message-content :is(h1, h3) {
   color: white;
   font-family: "Play", sans-serif;
   font-weight: 400;
@@ -1305,10 +1481,12 @@ form.runnerCard header img {
   display: flex;
   gap: 20px;
 }
+
 .augmentations h3 {
   display: flex;
   align-items: center;
 }
+
 button.item-add {
   width: 30px;
   height: 30px;
@@ -1316,6 +1494,7 @@ button.item-add {
   border: 0;
   clip-path: polygon(40% 0%, 60% 0%, 100% 40%, 100% 60%, 100% 100%, 0 100%, 0% 60%, 0 0);
 }
+
 .aug.GLICHED {
   background: rgb(var(--red));
 }
@@ -1324,12 +1503,13 @@ button.item-add {
   color: black;
   font-size: var(--font-huge);
 }
+
 li.chat-message.message.flexcol .dice span.GLICHED i.fa-solid {
   background: rgb(var(--black));
   color: rgb(var(--yellow));
 }
 
-.runner.consequence :is(h1,h3) {
+.runner.consequence :is(h1, h3) {
   margin: 0
 }
 
@@ -1341,16 +1521,16 @@ button.item-isOpen.yes {
   transform: rotate(45deg);
 }
 
-.armors > div {
+.armors>div {
   display: flex;
   align-items: center;
 }
 
-.armors input:checked ~ label {
+.armors input:checked~label {
   text-decoration: line-through;
 }
 
-.aug > div:not(.desc) > button {
+.aug>div:not(.desc)>button {
   padding: 0;
   margin: 0;
   border: 0;
@@ -1372,17 +1552,20 @@ button.item-isOpen.yes {
   color: rgb(var(--yellow));
 }
 
-.aug .desc p{
+.aug .desc p {
   font-size: var(--font-smed);
   text-align: justify;
 }
+
 .aug .desc button {
   font-family: "Tiny5", sans-serif;
   width: 100%;
 }
+
 .runnerCard.black .aug .desc button {
   color: rgb(var(--white));
 }
+
 .dots i {
   font-family: "Font Awesome 6 Pro";
   font-size: var(--font-huge);
@@ -1417,15 +1600,16 @@ button.item-isOpen.yes {
 }
 
 section.skills tr:nth-child(odd) {
-    background: rgb(var(--white));
+  background: rgb(var(--white));
 }
 
 .black section.skills tr {
-    background: rgb(var(--dark));
-    color: rgb(var(--gray))
+  background: rgb(var(--dark));
+  color: rgb(var(--gray))
 }
+
 .black section.skills tr:nth-child(odd) {
-    background: rgb(var(--black));
+  background: rgb(var(--black));
 }
 
 section.skills p {
@@ -1440,73 +1624,83 @@ section.skills p {
 
 [data-type="dice"] i,
 .label i {
-    font-family: 'Font Awesome 6 Pro';
+  font-family: 'Font Awesome 6 Pro';
 }
 
 .glichedDice label {
-    background: rgb(var(--red));
+  background: rgb(var(--red));
 }
+
 .glichedDice i {
   font-family: "Font Awesome 6 Pro";
   color: rgb(var(--yellow));
 }
 
 .augCard {
-    background: rgb(var(--dark));
+  background: rgb(var(--dark));
 }
 
-.augCard h1{
-    background: rgba(var(--black),0.66);
-    border:  none;
-    margin: 0;
-    padding: 20px 0;
-    backdrop-filter: blur(5px);
-    flex-grow: 1;
+.augCard h1 {
+  background: rgba(var(--black), 0.66);
+  border: none;
+  margin: 0;
+  padding: 20px 0;
+  backdrop-filter: blur(5px);
+  flex-grow: 1;
 }
 
 .augCard h1 input {
-    color: rgb(var(--white));
-    border: none;
-    padding: 20px;
-    border-bottom: 1px solid rgb(var(--gray));    
+  color: rgb(var(--white));
+  border: none;
+  padding: 20px;
+  border-bottom: 1px solid rgb(var(--gray));
 }
 
 .augCard .header {
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .augCard .item-glitch {
-    width: min-content;
+  width: min-content;
 }
 
 .augCard .desc {
-    padding: 5px;
-    text-align: justify;
+  padding: 5px;
+  text-align: justify;
 }
+
 .augCard .desc p {
-    color: rgb(var(--white));
+  color: rgb(var(--white));
 }
 
 form.augCard .header input[type="checkbox"] {
-    display: none;
+  display: none;
 }
 
 .augCard .item-glitch {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(var(--white));
-    padding: 20px;
-    font-family: "Tiny5", sans-serif;
-    border: 3px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(var(--white));
+  padding: 20px;
+  font-family: "Tiny5", sans-serif;
+  border: 3px solid;
 }
 
 .message-content .GLICHED {
-    font-size: var(--font-smed);
-    padding: 2px 8px;
+  font-size: var(--font-smed);
+  padding: 2px 8px;
 }
 
 .aug .desc {
- padding: 10px;
+  padding: 10px;
+}
+
+.aug>div {
+  display: flex;
+}
+
+.roll > buttons {
+  align-items: stretch;
 }
