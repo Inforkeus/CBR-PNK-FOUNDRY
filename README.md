@@ -22,7 +22,7 @@ Now available in English, Polish, ( Russian to be checked by more fluent speaker
 - English
 - Polish - [Kiszu](https://github.com/P4NTY)
 - Russia - [Kiszu](https://github.com/P4NTY)
-- Português (Brasil) [uSirThunder](https://github.com/uSirThunder)
+- Português (Brasil) - [uSirThunder](https://github.com/uSirThunder)
 
 ## To do:
 - Make Hacks card
