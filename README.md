@@ -1,22 +1,30 @@
 ![Splash](https://raw.githubusercontent.com/P4NTY/CBR-PNK-FOUNDRY/main/assets/CBRPNK_splash.webp)
 # CBR+PNK ON FOUNDRY VTT
 Unofficial system to play CBR+PNK on Foundry VTT
-- Link to install: [https://raw.githubusercontent.com/P4NTY/CBR-PNK-FOUNDRY/main/system.json](https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/download/latest/system.json)
+
+Now available in English, Polish, ( Russian to be checked by more fluent speakers. )
+- Link to install: [https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/latest/download/system.json](https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/latest/download/system.json)
 - Link to TRPG system: https://emanoelmelo.itch.io/cbrpnk-core
- 
-## WHY?
-- The Custom Builder-based version is ugly and not very intulictive
 
 ## HOW IT LOOKS:
 ![image](https://github.com/P4NTY/CBR-PNK-FOUNDRY/blob/main/assets/image.png?raw=true)
 - The left button is adding and the right button is decreasing values.
-- GLICHED status can also be given with the middle mouse button -OR- just click GLICHED.
 - Selecting the value of the APPROACH and SKILL by clicking on the label.
+- GLITCH Approach by clicking on the flaw (next to the dices).
+- Glitched dice? Click on the bug for extra dice!
+- Augmentation is a item. Take as much as you can!
 - Hunter card - as Actor
-- Item card
+- Simple Item card with tracker.
+- Support i18n
+- Angel Roll Button between DEBT and CRED
+
+## Langs:
+- English
+- Polish - [Kiszu](https://github.com/P4NTY)
+- Russia - [Kiszu](https://github.com/P4NTY)
+- Português (Brasil) [uSirThunder](https://github.com/uSirThunder)
 
 ## To do:
-- Taking the text to the language packages
 - Make Hacks card
 
 ## License

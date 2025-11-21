@@ -3,7 +3,7 @@
     <div class="text">
         <h1>{{name}} {{#if title}}- {{title}}{{/if}}</h1>
         <div class="result">
-            <h3>{{action}}</h3>
+            {{#if action}}<h3>{{action}}</h3>{{/if}}
             <div class="dice">
                 {{{dices}}}
             </div>
@@ -13,8 +13,8 @@
         </div>
     </div>
     <div class="situation">
-        {{#if efect}}<p>EFFECT: {{efect}}</p>{{/if}}
+        {{#if efect}}<p>{{localize 'ROLL.Effect'}}: {{efect}}</p>{{/if}}
         <p>{{approach}}</p>
-        {{#if threat}}<p>THREAT: {{threat}}</p>{{/if}}
+        {{#if threat}}<p>{{localize 'ROLL.Threat'}}: {{threat}}</p>{{/if}}
     </div>
 </div>

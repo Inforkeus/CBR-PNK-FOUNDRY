@@ -1,0 +1,270 @@
+{
+    "TYPES": {
+        "Actor": {
+            "runner": "Runner",
+            "hunter": "Łowca"
+        },
+        "Item": {
+            "item": "Przedmiot",
+            "augmentation": "Wszczep"
+        }
+    },
+    "EXPAND": "ROZWIŃ",
+    "COLLAPSE": "ZWIŃ",
+    "EDIT": "EDYTUJ",
+    "RUNNER": {
+        "SR": "SPCEJALNY PANCERZ",
+        "DEBT": "DŁUGI",
+        "CRED": "FANTY",
+        "STRESS": "STRES",
+        "GLICHED": "GLICZ",
+        "OVERLOAD": {
+            "name": "Przegrzanie",
+            "desc": "<p>Zaznaczyłeś ostatni stres ⚡, Wybierz podejście, które będzie <em>ZGLICZOWANE</em> i zmierz się z wynikającymi komplikacjami:</p><ul><li>Wypadasz z akcji.</li><li>Wystawiasz drużyne na zagrożenie.</li><li>Tracicie przewagę.</li><li>Niszczysz lub przeoczasz coś ważnego.</li></ul><p>Kiedy <strong>PRZEGRZEWASZ SIĘ</strong> nie możesz podejmować akcji wymqagajacych ⚡. Zaczerpnij <strong>Oddechu</strong>, by odzyskać ⚡ i wyczyścić status.</p>"
+        },
+        "AUG": "WSZCZEPY",
+        "ABILITY": "ZDOLNOŚCI"
+    },
+    "HUNTER": {
+        "ACTIVATION": "AKTYWACJA",
+        "COUNTER": "KOTNRA",
+        "RANK": "RANGA",
+        "PICK": "WEŹ",
+        "UPGRADE": "ULEPSZ"
+    },
+    "Approach": {
+        "name": "PODEJŚCIE",
+        "DETAILS": "Szczegóły",
+        "AGGRESSIVE": {
+            "name": "AGRESYWNE",
+            "flaw": "ZAWAHANIE",
+            "desc": "SIŁA ZASTRASZANIE ZNISZCZENIE"
+        },
+        "SMART": {
+            "name": "MĄDRE",
+            "flaw": "DESORIENTACJA",
+            "desc": "KREATYWNOŚĆ SPRYT PERCEPCJA"
+        },
+        "EMPATHIC": {
+            "name": "EMPATYCZNE",
+            "flaw": "APATIA",
+            "desc": "CHARYZMA PRZYWÓDZTWO DYPLOMACJA"
+        },
+        "STEALTHY": {
+            "name": "CICHE",
+            "flaw": "NIEROZWAGA",
+            "desc": "DYSKRECJA PODSTĘP TAJEMNICA"
+        }
+    },
+    "Skill": {
+        "name": "UMIEJĘTNOŚCI",
+        "ANALYZE": {
+            "name": "ANALIZA",
+            "PEOPLE": "LUDZIE",
+            "SITUATION": "SYTUACJA",
+            "INFORMATION": "INFORMACJE"
+        },
+        "ATHLETICS": {
+            "name": "ATLETYKA",
+            "SPRINT": "SPRINT",
+            "PARKOUR": "PARKOUR",
+            "SWIM": "PŁYWANIE",
+            "CLIMB": "WSPINANIE"
+        },
+        "CLOSE": {
+            "name": "WRĘCZ",
+            "BRAWLING": "PIĘŚCI",
+            "KNIFE": "NOŻE",
+            "SWORD": "MIECZE",
+            "BAT": "PAŁY",
+            "WIRE": "STRUNY"
+        },
+        "CODING": {
+            "name": "KODOWANIE",
+            "HACK": "HAKI",
+            "COMPILE": "COMPILE",
+            "MINE": "MINE",
+            "SCRAMBLE": "SCRAMBLE"
+        },
+        "INFLUENCE": {
+            "name": "WPŁYW",
+            "PERFORM": "WYSTĘPY",
+            "NEGOTIATE": "NEGOCJACJE",
+            "INTIMIDATE": "IMTYMNOŚĆ"
+        },
+        "PILOTING": {
+            "name": "JAZDA",
+            "CARS": "SAMOCHODY",
+            "BIKES": "ROWERY",
+            "CHOPPERS": "MOTORY",
+            "DRONES": "DRONY"
+        },
+        "RANGED": {
+            "name": "STRZELANIE",
+            "PISTOL": "KLAMKI",
+            "RIFLE": "KARABINY",
+            "SMG": "SMG",
+            "THROWING": "RZUCANIE"
+        },
+        "RIGGING": {
+            "name": "TECHNIKA",
+            "ELETRONICS": "ELEKTRONIKA",
+            "ROBOTICS": "ROBOTY",
+            "HEAVY": "MASZYNY"
+        },
+        "SCIENCES": {
+            "name": "NAUKA",
+            "BIOTECH": "BIOTECH",
+            "PHYSICS": "FIZYKA",
+            "CHEMISTRY": "CHEMIA"
+        },
+        "STREETWISE": {
+            "name": "ZNAJOMOŚCI",
+            "POLITICS": "POLITYKA",
+            "MARKET": "MARKET",
+            "NAVIGATION": "NAWIGACJA"
+        },
+        "ATTUNE": {
+            "name": "DOSTROJENIE",
+            "SPIRITS": "DUCHY",
+            "ARTIFACTS": "ARTEFAKTY",
+            "PLACES": "MIEJSCA"
+        }
+    },
+    "ROLL": {
+        "Effect": "EFEKT",
+        "Threat": "POZYCJA",
+        "Dice": "KOŚCI",
+        "ResistRoll": "ODPIERANIE",
+        "ActionRoll": "AKCJA",
+        "BreathRoll": "ODDECH",
+        "AngelRoll": "OPATRZNOŚĆ"
+    },
+    "ANGEL": {
+        "crit": {
+            "title": "JESTEŚ DIAMENTEM",
+            "desc": "Poczekaj, aż inni gracze rzucą. Wybierz, komu podasz pomocną rękę – popraw jego wynik o jeden stopień. Opiszcie wspólnie, jak to wygląda."
+        },
+        "succ": {
+            "title": "WYRWAŁEŚ SIĘ Z TEGO",
+            "desc": "Jesteś tam gdzie, chciałeś, ale dlaczego nie czujesz się zwycięzcą?"
+        },
+        "part": {
+            "title": "MASZ TO, ALE...",
+            "desc": "To nie był ostatni skok, wiesz o tym, jak się przygotowujesz?"
+        },
+        "fail": {
+            "title": "ZAWIODŁEŚ...",
+            "desc": "W jakiś sposób twoje działania tylko sprawiają, że pogarszasz sprawy?"
+        }
+    },
+    "BREATH": {
+        "crit": {
+            "title": "BYŁEŚ GOTOWY NA GORSZE",
+            "desc": "<strong>WYCZYŚĆ CAŁY ⚡</strong> -LUB- <strong>ZIGNORUJ WSZYSTKIE</strong> RANY 1 i 2 poziomu do końca skoku."
+        },
+        "succ": {
+            "title": "TO POWINNO DZIAŁAĆ",
+            "desc": "<strong>WYCZYŚĆ ⚡⚡⚡</strong> -LUB- <strong>ZIGNORUJ</strong> RANĘ 1 lub 2 poziomu do końca skoku."
+        },
+        "part": {
+            "title": "ZACISKASZ ZĘBY",
+            "desc": "<strong>WYCZYŚĆ ⚡⚡</strong> -LUB- <strong>ZIGNORUJ</strong> RANĘ 1 poziomu do końca skoku."
+        },
+        "fail": {
+            "title": "WYCISNĄŁEŚ CO MOGŁEŚ",
+            "desc": "WYCZYŚĆ ⚡"
+        }
+    },
+    "RESIST": {
+        "crit": {
+            "title": "ZA ŁATWO",
+            "desc": "O TO CHODZIŁO!"
+        },
+        "succ": {
+            "title": "SOLIDNIE",
+            "desc": "ZAZNACZ ⚡"
+        },
+        "part": {
+            "title": "NIE NAJGORZEJ",
+            "desc": "ZAZNACZ ⚡⚡"
+        },
+        "fail": {
+            "title": "BLISKO",
+            "desc": "ZAZNACZ ⚡⚡⚡"
+        }
+    },
+    "ACTION": {
+        "crit": {
+            "title": "KRYTYK",
+            "desc": "Uzyskujesz przewagę (▲Eefekt, odkrywasz sekret, ▼Pozycje, zdobywasz skarb)."
+        },
+        "succ": {
+            "title": "SUKCES",
+            "desc": "Wszystko idzie zgodnie z planem."
+        },
+        "part": {
+            "title": "CZĘŚCIOWY",
+            "desc": "Dajesz radę, ale pojawia się <strong>Konsekwencja</strong>."
+        },
+        "fail": {
+            "title": "PORAŻKA",
+            "desc": "Rzeczy się sypią, czeka cie <strong>Konsekwenca</strong>."
+        },
+        "GLICHED": {
+            "hard": "Wyzwala dodatkowo <strong>Konsekwencję 2 poziomu</strong> nie da się jej Odpierać.",
+            "normal": "Zmagasz się z dodatkową <strong>Konsekwencją</strong> możesz ją Odpierać normalnie."
+        }
+    },
+    "GEAR": {
+        "name": "SPRZĘT",
+        "BLADE": "OSTRZE LUB DWA",
+        "SIDEARM": "KLAMKA",
+        "SUBMACHINE": "DŁUGA LUFA",
+        "LARGEHEAVY": "BROŃ KONKRET",
+        "TRACKING": "PLUSKWA GPS",
+        "CYBERDECK": "CYBERDECK",
+        "SDRONE": {
+            "name": "MAŁY DRON",
+            "desc": "SKRYTY / ZWROTNY"
+        },
+        "MDRONE": {
+            "name": "ŚREDNI DRON",
+            "desc": "TWARDY / BOJOWY"
+        },
+        "BATTERY": "ZAPASOWA BATERIA",
+        "MEDKIT": "APTECZKA",
+        "DISGUISE": "PRZYKRYWKA / KAMUFLARZ",
+        "ARMOR": "PANCERZ",
+        "AHEAVY": "+CIĘŻKI",
+        "INFILTRATION": "SZPIEG. KIT",
+        "AMMO": {
+            "name": "EXTRA AMMO",
+            "desc": "STAN / P.PANC / WYBUCH / ZAPAL"
+        },
+        "SURVIVAL": {
+            "name": "SUVRIVAL",
+            "desc": "MASKA, RACJE, FILTRY"
+        },
+        "GRENADES": {
+            "name": "GRANATY",
+            "desc": "EMP / GAS / STUN / ZAPŁON / FRAG"
+        },
+        "DEMOLITION": "ŁADUNKI WYBUCHOWE",
+        "MICROTRONICS": "PRECYZYJNE NARZĘDZIA",
+        "SPARTS": "CZĘŚCI ZAMIENNE",
+        "EXTRA": "DOD. OBCIĄZENIE"
+    },
+    "LOAD": {
+        "LIGHT": "LEKKI: Swobodny, Wtapiajacy się",
+        "MEDIUM": "ŚREDNI: Gotowy na robotę",
+        "HEAVY": "CIĘŻKI: Głośny, powolny, podejrzany"
+    },
+    "HARM": {
+        "name": "RANY",
+        "level_1": "▼E",
+        "level_2": "",
+        "level_3": "WYPAD",
+        "level_4": "WYBIŁA TWOJA GODZINA 💀"
+    }
+}

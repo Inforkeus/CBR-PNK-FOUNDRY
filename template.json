@@ -16,7 +16,11 @@
                 "CRED": {
                     "value": 0,
                     "max": 3
-                },
+                }
+            },
+            "armors": {
+                "armor": false,
+                "heavy": false,
                 "SR": false
             },
             "roll": {
@@ -24,7 +28,8 @@
                 "threat": 2,
                 "approach": "",
                 "skill": "",
-                "addDice": "+0"
+                "addDice": "+0",
+                "isGlichDice": false
             },
             "stress": {
                 "value": 0,
@@ -156,42 +161,13 @@
                     }
                 }
             },
-            "AUGMENTATIONS": {
-                "first": {
-                    "name": "",
-                    "desc": "",
-                    "GLICHED": false,
-                    "isOpen": false
-                },
-                "second": {
-                    "name": "",
-                    "desc": "",
-                    "GLICHED": false,
-                    "isOpen": false
-                },
-                "third": {
-                    "name": "",
-                    "desc": "",
-                    "GLICHED": false,
-                    "isOpen": false
-                }
-            },
             "GEAR": {
                 "LOAD": {
                     "value": 0,
                     "selected": "light",
-                    "light": {
-                        "value": 3,
-                        "desc": "Move freely, blend in easily."
-                    },
-                    "medium": {
-                        "value": 5,
-                        "desc": "Look ready for a job."
-                    },
-                    "heavy": {
-                        "value": 7,
-                        "desc": "Loud or slow, very conspicuous."
-                    }
+                    "light": { "value": 3 },
+                    "medium": { "value": 5 },
+                    "heavy": { "value": 7 }
                 },
                 "Equpment": {
                     "eq1": {
@@ -394,11 +370,17 @@
         }
     },
     "Item": {
-        "types": ["item"],
+        "types": ["item", "augmentation"],
         "item": {
             "desc": "",
             "stack": 0,
             "maxStack": 0
+        },
+        "augmentation": {
+            "desc": "",
+            "isOpen": false,
+            "isGLICHED": false,
+            "isActive": false
         }
     }
 }

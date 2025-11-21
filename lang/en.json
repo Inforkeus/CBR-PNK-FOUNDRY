@@ -1,0 +1,270 @@
+{
+    "TYPES": {
+        "Actor": {
+            "runner": "Runner",
+            "hunter": "Hunter"
+        },
+        "Item": {
+            "item": "Item",
+            "augmentation": "Augmentation"
+        }
+    },
+    "EXPAND": "EXPAND",
+    "COLLAPSE": "COLLAPSE",
+    "EDIT": "EDIT",
+    "RUNNER": {
+        "SR": "SPECIAL RESISTANCE",
+        "DEBT": "DEBT",
+        "CRED": "CRED",
+        "STRESS": "STRESS",
+        "GLICHED": "GLICHED",
+        "OVERLOAD": {
+            "name": "OVERLOAD",
+            "desc": "<p>When you mark your last ⚡, an Approach of your choosing becomes permanently <em>GLITCHED</em> and immediately incurs a complication, such as:</p><ul><li>You are taken out of action.</li><li>You expose the team’s weakness.</li><li>You make the team lose an advantage.</li><li>You damage or overlook something crucial.</li></ul><p>While <strong>OVERLOADED</strong> you can’t perform actions that would require ⚡. <strong>TAKE A BREATHER</strong> to relieve ⚡ and clear this status.</p>"
+        },
+        "AUG": "AUGMENTATIONS",
+        "ABILITY": "ABILITY"
+    },
+    "HUNTER": {
+        "ACTIVATION": "ACTIVATION",
+        "COUNTER": "COUNTER",
+        "RANK": "RANK",
+        "PICK": "PICK",
+        "UPGRADE": "UPGRADE"
+    },
+    "Approach": {
+        "name": "APPROACH",
+        "DETAILS": "DETAILS",
+        "AGGRESSIVE": {
+            "name": "AGGRESSIVE",
+            "flaw": "HESITATION",
+            "desc": "FORCE INTIMIDATION DESTRUCTION"
+        },
+        "SMART": {
+            "name": "SMART",
+            "flaw": "DISORIENTATION",
+            "desc": "CREATIVITY CUNNING PERCEPTION"
+        },
+        "EMPATHIC": {
+            "name": "EMPATHIC",
+            "flaw": "APATHY",
+            "desc": "CHARISMA LEADERSHIP DIPLOMAC"
+        },
+        "STEALTHY": {
+            "name": "STEALTHY",
+            "flaw": "RECKLESSNESS",
+            "desc": "DISCRETION SUBTERFUGE SECRECY"
+        }
+    },
+    "Skill": {
+        "name": "SKILLS",
+        "ANALYZE": {
+            "name": "ANALYZE",
+            "PEOPLE": "PEOPLE",
+            "SITUATION": "SITUATION",
+            "INFORMATION": "INFORMATION"
+        },
+        "ATHLETICS": {
+            "name": "ATHLETICS",
+            "SPRINT": "SPRINT",
+            "PARKOUR": "PARKOUR",
+            "SWIM": "SWIM",
+            "CLIMB": "CLIMB"
+        },
+        "CLOSE": {
+            "name": "CLOSE COMBAT",
+            "BRAWLING": "BRAWLING",
+            "KNIFE": "KNIFE",
+            "SWORD": "SWORD",
+            "BAT": "BAT",
+            "WIRE": "WIRE"
+        },
+        "CODING": {
+            "name": "CODING",
+            "HACK": "HACK",
+            "COMPILE": "COMPILE",
+            "MINE": "MINE",
+            "SCRAMBLE": "SCRAMBLE"
+        },
+        "INFLUENCE": {
+            "name": "INFLUENCE",
+            "PERFORM": "PERFORM",
+            "NEGOTIATE": "NEGOTIATE",
+            "INTIMIDATE": "INTIMIDATE"
+        },
+        "PILOTING": {
+            "name": "PILOTING",
+            "CARS": "CARS",
+            "BIKES": "BIKES",
+            "CHOPPERS": "CHOPPERS",
+            "DRONES": "DRONES"
+        },
+        "RANGED": {
+            "name": "RANGED COMBAT",
+            "PISTOL": "PISTOL",
+            "RIFLE": "RIFLE",
+            "SMG": "SMG",
+            "THROWING": "THROWING"
+        },
+        "RIGGING": {
+            "name": "RIGGING",
+            "ELETRONICS": "ELETRONICS",
+            "ROBOTICS": "ROBOTICS",
+            "HEAVY": "HEAVY M"
+        },
+        "SCIENCES": {
+            "name": "SCIENCES",
+            "BIOTECH": "BIOTECH",
+            "PHYSICS": "PHYSICS",
+            "CHEMISTRY": "CHEMISTRY"
+        },
+        "STREETWISE": {
+            "name": "STREETWISE",
+            "POLITICS": "POLITICS",
+            "MARKET": "MARKET",
+            "NAVIGATION": "NAVIGATION"
+        },
+        "ATTUNE": {
+            "name": "ATTUNE",
+            "SPIRITS": "SPIRITS",
+            "ARTIFACTS": "ARTIFACTS",
+            "PLACES": "PLACES"
+        }
+    },
+    "ROLL": {
+        "Effect": "EFFECT",
+        "Threat": "THREAT",
+        "Dice": "DICE",
+        "ResistRoll": "RESIST ROLL",
+        "ActionRoll": "ACTION ROLL",
+        "BreathRoll": "TAKE A BREATH",
+        "AngelRoll": "ANGEL ROLL"
+    },
+    "ANGEL": {
+        "crit": {
+            "title": "SUCCEEDED REMARKABLY",
+            "desc": "After all, other players are done. Choose who you offer a hand to-improve thier result by one step. Describe togheter how this works in the fiction."
+        },
+        "succ": {
+            "title": "GOT OUT OF IT",
+            "desc": "Why it doesn't feel like a win?"
+        },
+        "part": {
+            "title": "DID IT, BUT...",
+            "desc": "You know it won't last. How do you prepare?"
+        },
+        "fail": {
+            "title": "FAILED...",
+            "desc": "How do your actions only manage to set you back even further?"
+        }
+    },
+    "BREATH": {
+        "crit": {
+            "title": "YOU’VE BEEN THROUGH WORSE",
+            "desc": "<strong>CLEAR ALL ⚡</strong> -OR- <strong>IGNORE BOTH</strong> LEVELS 1 AND 2 HARM PENALTIES FOR THE REMAINDER OF THE RUN."
+        },
+        "succ": {
+            "title": "THAT SHOULD WORK",
+            "desc": "<strong>CLEAR ⚡⚡⚡</strong> -OR- <strong>IGNORE</strong> LEVEL 1 OR 2 HARM PENALTIES FOR THE REMAINDER OF THE RUN."
+        },
+        "part": {
+            "title": "SUCK IT UP",
+            "desc": "<strong>CLEAR ⚡⚡</strong> -OR- <strong>IGNORE</strong> LLEVEL 1 HARM PENALTIES FOR THE REMAINDER OF THE RUN."
+        },
+        "fail": {
+            "title": "TAKE WHAT YOU CAN GET",
+            "desc": "CLEAR ⚡"
+        }
+    },
+    "RESIST": {
+        "crit": {
+            "title": "2EZ",
+            "desc": "THAT’S IT."
+        },
+        "succ": {
+            "title": "SOLID",
+            "desc": "MARK ⚡"
+        },
+        "part": {
+            "title": "NOT BAD",
+            "desc": "MARK ⚡⚡"
+        },
+        "fail": {
+            "title": "CLOSE",
+            "desc": "MARK ⚡⚡⚡"
+        }
+    },
+    "ACTION": {
+        "crit": {
+            "title": "Critical",
+            "desc": "They succeed and gain benefit (▲E, uncover secret, ▼T, pinpoint bounty)."
+        },
+        "succ": {
+            "title": "Success",
+            "desc": "It goes as well as intended."
+        },
+        "part": {
+            "title": "Partial Success",
+            "desc": "Success, but it comes with a <strong>Consequence</strong>."
+        },
+        "fail": {
+            "title": "Failure",
+            "desc": "Things go bad as they fail and also suffer a <strong>Consequence</strong>."
+        },
+        "GLICHED": {
+            "hard": "It triggers a further <strong>Level 2 Consequence</strong> that can’t be Resisted.",
+            "normal": "The additional <strong>Consequence</strong> can be Resisted normally."
+        }
+    },
+    "GEAR": {
+        "name": "GEAR",
+        "BLADE": "A BLADE OR TWO",
+        "SIDEARM": "SIDEARM",
+        "SUBMACHINE": "SUBMACHINE GUN",
+        "LARGEHEAVY": "LARGE/HEAVY WEAPON",
+        "TRACKING": "TRACKING DEVICE",
+        "CYBERDECK": "CYBERDECK",
+        "SDRONE": {
+            "name": "SMALL DRONE",
+            "desc": "STEALTHY OR SWIFT"
+        },
+        "MDRONE": {
+            "name": "MEDIUM DRONE",
+            "desc": "TOUGH OR OFFENSIVE"
+        },
+        "BATTERY": "SPARE BATTERY",
+        "MEDKIT": "MEDKIT",
+        "DISGUISE": "DISGUISE OR CAMO",
+        "ARMOR": "ARMOR",
+        "AHEAVY": "+HEAVY",
+        "INFILTRATION": "INFILTRATION GEAR",
+        "AMMO": {
+            "name": "EXTRA AMMO",
+            "desc": "STANDARD / PIERCING / EXPLOSIVE / INCENDIARY"
+        },
+        "SURVIVAL": {
+            "name": "SURVIVAL KIT",
+            "desc": "MASK, RATION, WATER / AIR PURIF"
+        },
+        "GRENADES": {
+            "name": "GRENADES",
+            "desc": "EMP / GAS / STUN / INCEND / FRAG"
+        },
+        "DEMOLITION": "DEMOLITION TOOLS",
+        "MICROTRONICS": "MICROTRONICS TOOLS",
+        "SPARTS": "SPARE PARTS",
+        "EXTRA": "EXTRA LOAD"
+    },
+    "LOAD": {
+        "LIGHT": "LIGHT: Move freely, blend in easily.",
+        "MEDIUM": "MEDIUM: Look ready for a job.",
+        "HEAVY": "HEAVY: Loud or slow, very conspicuous."
+    },
+    "HARM": {
+        "name": "HARM",
+        "level_1": "▼E",
+        "level_2": "",
+        "level_3": "OUT",
+        "level_4": "TIME TO DIE 💀"
+    }
+}

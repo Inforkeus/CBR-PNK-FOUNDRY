@@ -16,10 +16,12 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         context.system.wierd = game.settings.get("CBRPNK", "wiedModule");
         context.system.AugGlitchedCheck = game.settings.get("CBRPNK", "AugGlitchedCheck");
 
+        context.augs = context.items.filter( ({type}) => type === "augmentation");
+
         return context;
     }
 
-    _onResize(event) {
+    _onResize() {
         if (this._element[0].offsetWidth > 600)
             this.actor.update({ "system.view": "grid" });
         else 
@@ -30,10 +32,71 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         super.activateListeners(html);
 
         html.mousedown( this._RunnerOnMouseDown.bind(this) );
-        html.find( `#${this.actor._id}_actionRoll`).mousedown( this.actionRoll.bind(this) );
-        html.find( `#${this.actor._id}_resistRoll`).mousedown( this.resistRoll.bind(this) );
-        html.find( `#${this.actor._id}_breathRoll`).mousedown( this.breathRoll.bind(this) );
+        
+        html.find(`.throw`).mousedown( this.rolls.bind(this) );
+        html.find(`.roll`).mousedown( this.setRolls.bind(this) );
 
+        html.find(`button.item-delete`).mousedown( this._DeleteItem.bind(this) );
+        html.find(`.item-add`).mousedown( this._AddItem.bind(this) );
+        html.find(`.item-name`).change( this._itemName.bind(this) );
+        html.find(`.item-glitch`).mousedown( this._ToggleGlitch.bind(this) );
+        html.find(`.item-isOpen`).mousedown( this._itemOpen.bind(this) );
+        html.find(`.item-active`).mousedown( this._itemActive.bind(this) );
+        html.find(`.item-edit`).mousedown( this._itemEdit.bind(this) );
+
+        html.find(`.dots`).mousedown( this._setSkill.bind(this) );
+        html.find(`h3:is([data-app],[data-skill])`).mousedown( this._SelectAppSkill.bind(this) );
+        html.find(`[data-exp]`).mousedown( this._SelectEpx.bind(this) );
+        html.find(`.flaw`).mousedown( this._SetGlichApp.bind(this) );
+
+    }
+
+    rolls ( event ) {
+        if ( event.target.classList.contains('resistRoll') ) this.resistRoll();
+        else if ( event.target.classList.contains('angelRoll') ) this.angelRoll();
+        else if ( event.target.classList.contains('actionRoll') ) this.actionRoll();
+        else if ( event.target.classList.contains('breathRoll') ) this.breathRoll();
+    }
+
+    setRolls ( event ) {
+        if ( event.target.nodeName === "LABEL" ) {
+            const selectValue = event.target.innerText;
+            const selectType = event.target.parentElement.className;
+            this.actor.update({ ["system.roll."+selectType]: selectValue });
+        }
+    }
+
+    _setSkill (event) {
+        const btnClick = 
+            (event.which === 1 || event.button === 0) ? "l" :
+            (event.which === 2 || event.button === 1) ? "m" :
+            (event.which === 3 || event.button === 2) ? "r" : null;
+        const skill = event.target.closest('.dots').getAttribute('data-skill').split('.');
+
+        if ( btnClick == "l" )
+            this.actor.update({ [`system.${skill.join('.')}.dice`]: Math.min(this.actor.system[skill[0]][skill[1]].dice+1, 2) });
+        else if ( btnClick == "r" )
+            this.actor.update({ [`system.${skill.join('.')}.dice`]: Math.max(this.actor.system[skill[0]][skill[1]].dice-1,0) });
+    }
+
+    _SelectAppSkill ( event ) {
+        const app = event.target.getAttribute('data-app');
+        const skill = event.target.getAttribute('data-skill');
+
+        if (app)
+            this.actor.update({ "system.roll.approach": app });
+        else if (skill)
+            this.actor.update({ "system.roll.skill": skill });
+    }
+
+    _SelectEpx ( event ) {
+        const data = event.target.getAttribute('data-exp').split('.');
+        this.actor.update({ [`system.skills.${data[0]}.EXPERTISES.${data[1]}`] : !this.actor.system.skills[data[0]].EXPERTISES[data[1]] })
+    }
+
+    _SetGlichApp ( event ) {
+        const app = event.target.parentElement.parentElement.querySelector('h3').getAttribute('data-app');
+        this.actor.update({ [`system.approach.${app}.GLICHED`] : !this.actor.system.approach[app].GLICHED })
     }
 
     _RunnerOnMouseDown(event) {
@@ -47,23 +110,16 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
                 if ( ["DEBT","CRED"].includes(event.target.classList[0]) ){
                     if (btnClick == "l") {
                         this.actor.update({ 
-                            [`system.angle.${event.target.innerText}.value`]:
-                            Math.min(this.actor.system.angle[event.target.innerText].value+1, this.actor.system.angle[event.target.innerText].max)
+                            [`system.angle.${event.target.classList[0]}.value`]:
+                            Math.min(this.actor.system.angle[event.target.classList[0]].value+1, this.actor.system.angle[event.target.classList[0]].max)
                         });
                     }
                     else if (btnClick == "r") {
                         this.actor.update({
-                            [`system.angle.${event.target.innerText}.value`]: 
-                            Math.max(this.actor.system.angle[event.target.innerText].value-1,0)
+                            [`system.angle.${event.target.classList[0]}.value`]: 
+                            Math.max(this.actor.system.angle[event.target.classList[0]].value-1,0)
                         });
                     }
-                }
-            break;
-            case "roll": 
-                if ( event.target.nodeName === "LABEL" ) {
-                    const selectValue = event.target.innerText;
-                    const selectType = event.target.parentElement.className;
-                    this.actor.update({ ["system.roll."+selectType]: selectValue });
                 }
             break;
             case "stress":
@@ -75,79 +131,6 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
                     this.actor.update({
                         "system.stress.value": Math.max(this.actor.system.stress.value-1,0),
                         "system.stress.isLOAD": false
-                    });
-            break;
-            case "approach":
-                const clickedApproachName = `system.approach.${event.target.parentElement.parentElement.querySelector("h3").innerText}`;
-
-                if (event.target.classList[0] === 'box') {
-                    const currSkillValue = event.target.parentElement.parentElement.getAttribute("data-value");
-                    if ( btnClick == "l" )
-                        this.actor.update({ [clickedApproachName+".dice"]: Math.min(currSkillValue+1, 2) });
-                    else if ( btnClick == "r" )
-                        this.actor.update({ [clickedApproachName+".dice"]: Math.max(currSkillValue-1,0) });
-                }
-                else if ( event.target.classList[0] === 'dots' ) {
-                    this.actor.update({ 
-                        ["system.approach."+event.target.parentElement.querySelector("h3").innerText+".GLICHED"]: 
-                        !this.actor.system.approach[event.target.parentElement.querySelector("h3").innerText].GLICHED
-                    });
-                }
-                if ( event.target.nodeName === "H3" ) {
-                    if ( btnClick == "l" ) 
-                        this.actor.update({ "system.roll.approach": event.target.innerText });
-                    else if ( btnClick == "r" ) 
-                        this.actor.update({ "system.roll.approach": "" }); 
-                }
-            break;
-            case "skills": 
-                const clickedSkillName = event.target.closest("tr").querySelector("h3").innerText.split(" ")[0];
-                if (event.target.classList[0] === 'box') {
-                    const currSkillValue = event.target.closest("tr").getAttribute("data-value");
-                    if (btnClick == "l")
-                        this.actor.update({ ["system.skills."+clickedSkillName+".dice"]: Math.min(currSkillValue+1, 2) });
-                    else if (btnClick == "r")
-                        this.actor.update({ ["system.skills."+clickedSkillName+".dice"]: Math.max(currSkillValue-1,0) });
-                    else if ( btnClick == "m" ) {
-                        const arrValues = [];
-                        for (let index = 0; index <= currSkillValue; index++) {
-                            arrValues.push(index);
-                        }
-
-                        console.log({
-                            oldValue: this.actor.system.skills[clickedSkillName].gliched,
-                            newValue: (this.actor.system.skills[clickedSkillName].gliched + 1)%arrValues.length
-                        });
-                        
-
-                        this.actor.update({
-                            ["system.skills."+clickedSkillName+".gliched"]:
-                            arrValues[ (this.actor.system.skills[clickedSkillName].gliched + 1)%arrValues.length ]
-                        })
-                    }
-                }
-                else if ( event.target.nodeName === "SPAN" ) {
-                    const clickedSkillExp = event.target.innerText.split(" ")[0];
-                    this.actor.update({ 
-                        ["system.skills."+clickedSkillName+".EXPERTISES."+clickedSkillExp]: 
-                        !this.actor.system.skills[event.target.closest("tr").querySelector("h3").innerText.split(" ")[0]].EXPERTISES[clickedSkillExp]
-                    });
-                }
-                if ( event.target.nodeName === "H3" ) {
-                    if ( btnClick == "l" ) 
-                        this.actor.update({ "system.roll.skill": event.target.innerText.split(" ")[0] });
-                    else if (  btnClick == "r" ) 
-                        this.actor.update({ "system.roll.skill": "" });
-                }
-            break;
-            case "augmentations": 
-                if (  event.target.nodeName === "INPUT" && btnClick == "m" ) 
-                    this.actor.update({ 
-                        ["system.AUGMENTATIONS."+event.target.getAttribute("name").split(".")[2]+".GLICHED" ]: !this.actor.system.AUGMENTATIONS[event.target.getAttribute("name").split(".")[2]].GLICHED
-                    });
-                if ( event.target.nodeName === "P" && btnClick == "l" )
-                    this.actor.update({ 
-                        ["system.AUGMENTATIONS."+event.target.parentElement.querySelector('[name]').getAttribute("name").split(".")[2]+".GLICHED" ]: !this.actor.system.AUGMENTATIONS[event.target.parentElement.querySelector('[name]').getAttribute("name").split(".")[2]].GLICHED
                     });
             break;
             case "gear":
@@ -217,13 +200,13 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         const dataRoll = {
             ...this.actor.system.roll,
             GLICHED: 
-                Object.values(this.actor.system.AUGMENTATIONS).filter( 
-                    ({GLICHED,isOpen}) => GLICHED && ( !this.actor.system.AugGlitchedCheck || isOpen )
-                ).length + 
+                this.actor.items.map( ({system}) => 
+                    system.isGLICHED && ( !this.actor.system.AugGlitchedCheck || system.isActive )
+                ).filter(x => x).length + 
                 this.actor.system.approach[this.actor.system.roll.approach].GLICHED + 
-                this.actor.system.skills[this.actor.system.roll.skill].gliched,
+                this.actor.system.roll.isGlichDice,
             dices: `${this.actor.system.approach[this.actor.system.roll.approach].dice} + ${(this.actor.system.skills[this.actor.system.roll.skill]||{dice: 0}).dice}`
-        }, dicePool = Math.min(6, eval(`${dataRoll.dices}${dataRoll.addDice||"+0"}`) );
+        }, dicePool = Math.min(6, eval(`${dataRoll.dices}${dataRoll.addDice||"+0"}+${this.actor.system.roll.isGlichDice||'0'}`) );
         let letsRoll, rollResult = 0;
         const templateData = {
             title: "",
@@ -234,8 +217,8 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
             desc: "",
             efect: dataRoll.efect,
             threat: dataRoll.threat,
-            action: ["CLOSE","RANGED"].includes(dataRoll.skill) ? dataRoll.skill + " COMBAT" : dataRoll.skill,
-            approach: dataRoll.approach
+            action: game.i18n.localize(`Skill.${dataRoll.skill}.name`),
+            approach: game.i18n.localize(`Approach.${dataRoll.approach}.name`)
         };
 
         if ( dicePool <= 0 ) {
@@ -249,39 +232,40 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         }
 
         if (rollResult.filter( dice => dice == 6).length >= 2) {
-            templateData.title = "Critical";
+            templateData.title = game.i18n.localize("ACTION.crit.title");
             templateData.class = "critical";
-            templateData.desc = "It goes as well as intended.";
+            templateData.desc = game.i18n.localize("ACTION.crit.desc");
         }
         else if (Math.max(...rollResult) == 6 ) {
-            templateData.title = "Success";
+            templateData.title = game.i18n.localize("ACTION.succ.title");
             templateData.class = "good";
-            templateData.desc = "It goes as well as intended.";
+            templateData.desc = game.i18n.localize("ACTION.succ.desc");
         }
         else if (rollResult.filter( dice => dice == 4 || dice == 5).length ) {
-            templateData.title = "Partial Success";
+            templateData.title = game.i18n.localize("ACTION.part.title");
             templateData.class = "consequence";
-            templateData.desc = "<div>Success, but it comes with a <strong>Consequence</strong>.</div>";
+            templateData.desc = game.i18n.localize("ACTION.part.desc");
         }
         else {
-            templateData.title = "Failure";
+            templateData.title = game.i18n.localize("ACTION.fail.title");
             templateData.class = "bad";
-            templateData.desc = "<div>Things go bad as they fail and also suffer a <strong>Consequence</strong>.</div>";
+            templateData.desc = game.i18n.localize("ACTION.fail.desc");
         }
 
         if (dataRoll.GLICHED) {
             rollResult.slice(0,dataRoll.GLICHED).forEach( dice => {
                 if (dice <= 3) {
-                    templateData.desc += `<div class="GLICHED">${dice}: It triggers a further <strong>Level 2 Consequence</strong> that can’t be Resisted.</div>`;
+                    templateData.desc += `<div class="GLICHED">${dice}: ${game.i18n.localize("ACTION.GLICHED.hard")}</div>`;
                 }
                 else if ( dice == 4 || dice == 5 ) {
-                    templateData.desc += `<div class="GLICHED">${dice}: The additional <strong>Consequence</strong> can be Resisted normally</div>`;
+                    templateData.desc += `<div class="GLICHED">${dice}: ${game.i18n.localize("ACTION.GLICHED.normal")}</div>`;
                 }
             })
         }
 
         rollResult.forEach( (dice,index) => {
-            templateData.dices += `<span class="${index < dataRoll.GLICHED ? "GLICHED" : ""}">${dice}</span>`;
+            const sides = ['one','two', 'three', 'four', 'five', 'six'];
+            templateData.dices += `<span class="${index < dataRoll.GLICHED ? "GLICHED" : ""}"><i class="fa-solid fa-dice-${sides[dice-1]}"></i></span>`;
         });
 
         const content = await renderTemplate('systems/CBRPNK/templates/roll-card.hbs', templateData);
@@ -295,7 +279,10 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         });
 
         if (game.settings.get("CBRPNK", "resetDice")) {
-            this.actor.update({ "system.roll.addDice" : 0 });
+            this.actor.update({ 
+                "system.roll.addDice" : 0,
+                "system.roll.isGlichDice": false
+             });
         }
     }
 
@@ -306,11 +293,9 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
             dices: "",
             img: this.actor.img,
             name: this.actor.name,
-            desc: "<p>When you mark your last ⚡, an Approach of your choosing becomes permanently <em>GLITCHED</em> and immediately incurs a complication, such as:</p>" +
-            "<ul><li>You are taken out of action.</li><li>You expose the team’s weakness.</li><li>You make the team lose an advantage.</li><li>You damage or overlook something crucial.</li></ul>"+
-            "<p>While <strong>OVERLOADED</strong> you can’t perform actions that would require ⚡. <strong>TAKE A BREATHER</strong> to relieve ⚡ and clear this status.</p>",
+            desc: game.i18n.localize("RUNNER.OVERLOAD.desc"),
             action: "",
-            approach: "OVERLOAD"
+            approach: game.i18n.localize("RUNNER.OVERLOAD.name")
         };
         const content = await renderTemplate('systems/CBRPNK/templates/roll-card.hbs', templateData);
 
@@ -336,8 +321,8 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
             img: this.actor.img,
             name: this.actor.name,
             desc: "",
-            action: "RESIST",
-            approach: dataRoll.approach
+            action: game.i18n.localize("ROLL.ResistRoll"),
+            approach: game.i18n.localize(`Approach.${dataRoll.approach}.name`)
         };
 
         if ( dicePool <= 0 ) {
@@ -351,34 +336,35 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         }
 
         if (rollResult.filter( dice => dice == 6).length == 2) {
-            templateData.title = "2EZ";
+            templateData.title = game.i18n.localize("RESIST.crit.title");
             templateData.class = "critical";
-            templateData.desc = "THAT’S IT.";
+            templateData.desc = game.i18n.localize("RESIST.crit.desc");
         }
         else if (Math.max(...rollResult) == 6 ) {
             stress += 1;
-            templateData.title = "SOLID";
+            templateData.title = game.i18n.localize("RESIST.succ.title");
             templateData.class = "good";
-            templateData.desc = "MARK ⚡";
+            templateData.desc = game.i18n.localize("RESIST.succ.desc");
             this.actor.update({ "system.stress.value": Math.min( this.actor.system.stress.value + 1, 7) });
         }
         else if (rollResult.filter( dice => dice == 4 || dice == 5).length ) {
             stress += 2;
-            templateData.title = "NOT BAD";
+            templateData.title = game.i18n.localize("RESIST.part.title");
             templateData.class = "consequence";
-            templateData.desc = "MARK ⚡⚡";
+            templateData.desc = game.i18n.localize("RESIST.part.desc");
             this.actor.update({ "system.stress.value": Math.min( this.actor.system.stress.value + 2, 7) });
         }
         else {
             stress += 3;
-            templateData.title = "CLOSE";
+            templateData.title = game.i18n.localize("RESIST.fail.title");
             templateData.class = "bad";
-            templateData.desc = "MARK ⚡⚡⚡";
+            templateData.desc = game.i18n.localize("RESIST.fail.desc");
             this.actor.update({ "system.stress.value": Math.min( this.actor.system.stress.value + 3, 7) });
         }
 
-        rollResult.forEach( (dice) => {
-            templateData.dices += `<span>${dice}</span>`;
+        rollResult.forEach( (dice,index) => {
+            const sides = ['one','two', 'three', 'four', 'five', 'six'];
+            templateData.dices += `<span class="${index < dataRoll.GLICHED ? "GLICHED" : ""}"><i class="fa-solid fa-dice-${sides[dice-1]}"></i></span>`;
         });
 
         const content = await renderTemplate('systems/CBRPNK/templates/roll-card.hbs', templateData);
@@ -394,7 +380,10 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         if ( stress >= 7 && !this.actor.system.stress.isLOAD) this.overLOAD();
 
         if (game.settings.get("CBRPNK", "resetDice")) {
-            this.actor.update({ "system.roll.addDice" : 0 });
+            this.actor.update({ 
+                "system.roll.addDice" : 0,
+                "system.roll.isGlichDice": false
+             });
         }
     }
     async breathRoll() {
@@ -410,8 +399,8 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
             img: this.actor.img,
             name: this.actor.name,
             desc: "",
-            action: "TAKE A BREATH",
-            approach: dataRoll.approach
+            action: game.i18n.localize("ROLL.BreathRoll"),
+            approach: game.i18n.localize(`Approach.${dataRoll.approach}.name`)
         };
 
         if ( dicePool <= 0 ) {
@@ -425,24 +414,24 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         }
 
         if (rollResult.filter( dice => dice == 6).length == 2) {
-            templateData.title = "YOU’VE BEEN THROUGH WORSE.";
+            templateData.title = game.i18n.localize("BREATH.crit.title");
             templateData.class = "critical";
-            templateData.desc = "<strong>CLEAR ALL ⚡</strong> -OR- <strong>IGNORE BOTH</strong> LEVELS 1 AND 2 HARM PENALTIES FOR THE REMAINDER OF THE RUN.";
+            templateData.desc = game.i18n.localize("BREATH.crit.desc");
         }
         else if (Math.max(...rollResult) == 6 ) {
-            templateData.title = "THAT SHOULD WORK.";
+            templateData.title = game.i18n.localize("BREATH.succ.title");
             templateData.class = "good";
-            templateData.desc = "<strong>CLEAR ⚡⚡⚡</strong> -OR- <strong>IGNORE</strong> LEVEL 1 OR 2 HARM PENALTIES FOR THE REMAINDER OF THE RUN.";
+            templateData.desc = game.i18n.localize("BREATH.succ.desc");
         }
         else if (rollResult.filter( dice => dice == 4 || dice == 5).length ) {
-            templateData.title = "SUCK IT UP.";
+            templateData.title = game.i18n.localize("BREATH.part.title");
             templateData.class = "consequence";
-            templateData.desc = "<strong>CLEAR ⚡⚡</strong> -OR- <strong>IGNORE</strong> LLEVEL 1 HARM PENALTIES FOR THE REMAINDER OF THE RUN.";
+            templateData.desc = game.i18n.localize("BREATH.part.desc");
         }
         else {
-            templateData.title = "TAKE WHAT YOU CAN GET.";
+            templateData.title = game.i18n.localize("BREATH.fail.title");
             templateData.class = "bad";
-            templateData.desc = "CLEAR ⚡";
+            templateData.desc = game.i18n.localize("BREATH.fail.desc");
             this.actor.update({ 
                 "system.stress.value": Math.max( this.actor.system.stress.value - 1, 0),
                 "system.stress.isLOAD": false
@@ -450,7 +439,8 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         }
 
         rollResult.forEach( (dice,index) => {
-            templateData.dices += `<span>${dice}</span>`;
+            const sides = ['one','two', 'three', 'four', 'five', 'six'];
+            templateData.dices += `<span class="${index < dataRoll.GLICHED ? "GLICHED" : ""}"><i class="fa-solid fa-dice-${sides[dice-1]}"></i></span>`;
         });
 
         const content = await renderTemplate('systems/CBRPNK/templates/roll-card.hbs', templateData);
@@ -464,7 +454,119 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         });
         
         if (game.settings.get("CBRPNK", "resetDice")) {
-            this.actor.update({ "system.roll.addDice" : 0 });
+            this.actor.update({ 
+                "system.roll.addDice" : 0,
+                "system.roll.isGlichDice": false
+             });
         }
+    }
+
+    async angelRoll() {
+        const dataRoll = {
+            ...this.actor.system.roll,
+            dices: `${this.actor.system.approach[this.actor.system.roll.approach].dice}`
+        }, dicePool = Math.min(
+            6,
+            eval(`${dataRoll.dices} + ${dataRoll.addDice||0} + ${this.actor.system.angle.CRED.value} - ${this.actor.system.angle.DEBT.value}`)
+        );
+        let letsRoll, rollResult = 0;
+        const templateData = {
+            title: "",
+            class: "",
+            dices: "",
+            img: this.actor.img,
+            name: this.actor.name,
+            desc: "",
+            action: game.i18n.localize("ROLL.AngelRoll"),
+            approach: game.i18n.localize(`Approach.${dataRoll.approach}.name`)
+        };
+        
+        if (dicePool <= 0) {
+            letsRoll = await new Roll("2d6").roll({async:true});
+            rollResult = [Math.min( ...letsRoll.terms[0].results.map( ({result}) => result) )];
+        }
+        else {
+            letsRoll =  await new Roll(dicePool+"d6").roll({async:true});
+            rollResult = letsRoll.terms[0].results.map( ({result}) => result)
+        }
+
+        if (rollResult.filter( dice => dice == 6).length == 2) {
+            templateData.title = game.i18n.localize("ANGEL.crit.title");
+            templateData.class = "critical";
+            templateData.desc = game.i18n.localize("ANGEL.crit.desc");
+        }
+        else if (Math.max(...rollResult) == 6 ) {
+            templateData.title = game.i18n.localize("ANGEL.succ.title");
+            templateData.class = "good";
+            templateData.desc = game.i18n.localize("ANGEL.succ.desc");
+        }
+        else if (rollResult.filter( dice => dice == 4 || dice == 5).length ) {
+            templateData.title = game.i18n.localize("ANGEL.part.title");
+            templateData.class = "consequence";
+            templateData.desc = game.i18n.localize("ANGEL.part.desc");
+        }
+        else {
+            templateData.title = game.i18n.localize("ANGEL.fail.title");
+            templateData.class = "bad";
+            templateData.desc = game.i18n.localize("ANGEL.fail.desc");
+        }
+
+        rollResult.forEach( (dice,index) => {
+            const sides = ['one','two', 'three', 'four', 'five', 'six'];
+            templateData.dices += `<span class="${index < dataRoll.GLICHED ? "GLICHED" : ""}"><i class="fa-solid fa-dice-${sides[dice-1]}"></i></span>`;
+        });
+
+        const content = await renderTemplate('systems/CBRPNK/templates/roll-card.hbs', templateData);
+
+        ChatMessage.create({
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            rolls: [letsRoll],
+            user: game.user._id,
+            speaker: ChatMessage.getSpeaker({token: this.actor}),
+            content: content
+        });
+    }
+
+    _DeleteItem( event ) {
+        this.actor.deleteEmbeddedDocuments("Item", [
+            event.target.closest(".aug").getAttribute("data-item-id")
+        ]);
+    }
+
+    _AddItem( event ) {
+        switch ( event.target.closest('section').classList[0] ) {
+            case "augmentations":
+                Item.create({
+                    name: "Aug",
+                    type: "augmentation"
+                }, { parent: this.actor });
+            break;
+            default: break;
+        }
+    }
+
+    _ToggleGlitch( event ) {
+        const item = this.actor.items.get(event.target.closest(".aug").getAttribute("data-item-id"));
+        item.update({ "system.isGLICHED": !item.system.isGLICHED });
+    }
+
+    _itemName( event ) {
+        const item = this.actor.items.get(event.target.closest(".aug").getAttribute("data-item-id"));
+        if ( event.target.value === "" || event.target.value === null ) return;
+        item.update({ "name": event.target.value });
+    }
+
+    _itemOpen( event ) {
+        const item = this.actor.items.get(event.target.closest(".aug").getAttribute("data-item-id"));
+        item.update({ "system.isOpen": !item.system.isOpen });
+    }
+    _itemActive( event ) {
+        const item = this.actor.items.get(event.target.closest(".aug").getAttribute("data-item-id"));
+        item.update({ "system.isActive": !item.system.isActive });
+    }
+    _itemEdit( event ) {
+        this.actor.items.get( 
+            event.target.closest(".aug").getAttribute("data-item-id")
+        ).sheet.render(true);
     }
 }
