@@ -266,5 +266,11 @@
         "level_2": "",
         "level_3": "WYPAD",
         "level_4": "WYBIŁA TWOJA GODZINA 💀"
+    },
+    "WARN": {
+        "ROLL": "Nie ma ustawionego PODEJŚCIA lub UMIEJĘTNOŚCI"
+    },
+    "TOOLTIP": {
+        "glich_dice": "+ Zgliczowana Kostka"
     }
 }

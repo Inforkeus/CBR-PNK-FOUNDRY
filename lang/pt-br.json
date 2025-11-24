@@ -266,5 +266,11 @@
     "level_2": "",
     "level_3": "EXAUSTA",
     "level_4": "CHEGOU SUA HORA 💀"
+  },
+  "WARN": {
+    "ROLL": "Nenhuma ATITUDE ou PERÍCIA selecionada"
+  },
+  "TOOLTIP": {
+    "glich_dice": "+ BUGADO DADO"
   }
 }

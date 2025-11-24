@@ -1,10 +1,10 @@
 export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
-          width: 440,
-          height: 790,
+            width: 440,
+            height: 790,
         });
-      }
+    }
 
     get template() {
         return `systems/CBRPNK/templates/sheets/${this.actor.type}.hbs`;
@@ -52,6 +52,11 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
     }
 
     rolls ( event ) {
+        if (this.actor.system.roll.approach === '' || this.actor.system.roll.skill === ''){
+            ui.notifications.warn(game.i18n.localize("WARN.ROLL"));
+            return '';
+        }
+
         if ( event.target.classList.contains('resistRoll') ) this.resistRoll();
         else if ( event.target.classList.contains('angelRoll') ) this.angelRoll();
         else if ( event.target.classList.contains('actionRoll') ) this.actionRoll();
@@ -206,7 +211,7 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
                 this.actor.system.approach[this.actor.system.roll.approach].GLICHED + 
                 this.actor.system.roll.isGlichDice,
             dices: `${this.actor.system.approach[this.actor.system.roll.approach].dice} + ${(this.actor.system.skills[this.actor.system.roll.skill]||{dice: 0}).dice}`
-        }, dicePool = Math.min(6, eval(`${dataRoll.dices}${dataRoll.addDice||"+0"}+${this.actor.system.roll.isGlichDice||'0'}`) );
+        }, dicePool = Math.min(6, eval([dataRoll.dices, dataRoll.addDice||0, (this.actor.system.roll.isGlichDice ? 1 : 0)].join('+')) );
         let letsRoll, rollResult = 0;
         const templateData = {
             title: "",
@@ -312,7 +317,7 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         const dataRoll = {
             ...this.actor.system.roll,
             dices: `${this.actor.system.approach[this.actor.system.roll.approach].dice}`
-        }, dicePool = Math.min(6, eval(`${dataRoll.dices}${dataRoll.addDice||"+0"}`) );
+        }, dicePool = Math.min(6, eval([dataRoll.dices, dataRoll.addDice||0].join('+')) );
         let letsRoll, rollResult = 0, stress = this.actor.system.stress.value;
         const templateData = {
             title: "",
@@ -386,11 +391,12 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
              });
         }
     }
+
     async breathRoll() {
         const dataRoll = {
             ...this.actor.system.roll,
             dices: `${this.actor.system.approach[this.actor.system.roll.approach].dice}`
-        }, dicePool = Math.min(6, eval(`${dataRoll.dices}${dataRoll.addDice||"+0"}`) );
+        }, dicePool = Math.min(6, eval([dataRoll.dices, dataRoll.addDice||0].join('+')) );
         let letsRoll, rollResult = 0;
         const templateData = {
             title: "",
@@ -560,10 +566,12 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         const item = this.actor.items.get(event.target.closest(".aug").getAttribute("data-item-id"));
         item.update({ "system.isOpen": !item.system.isOpen });
     }
+
     _itemActive( event ) {
         const item = this.actor.items.get(event.target.closest(".aug").getAttribute("data-item-id"));
         item.update({ "system.isActive": !item.system.isActive });
     }
+
     _itemEdit( event ) {
         this.actor.items.get( 
             event.target.closest(".aug").getAttribute("data-item-id")

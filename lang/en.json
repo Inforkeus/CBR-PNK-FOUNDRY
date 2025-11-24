@@ -138,7 +138,7 @@
         "ResistRoll": "RESIST ROLL",
         "ActionRoll": "ACTION ROLL",
         "BreathRoll": "TAKE A BREATH",
-        "AngelRoll": "ANGEL ROLL"
+        "AngelRoll": "ANGLE ROLL"
     },
     "ANGEL": {
         "crit": {
@@ -266,5 +266,11 @@
         "level_2": "",
         "level_3": "OUT",
         "level_4": "TIME TO DIE 💀"
+    },
+    "WARN": {
+        "ROLL": "No APPROACH or SKILL selected"
+    },
+    "TOOLTIP": {
+        "glich_dice": "+ GLICHED DICE"
     }
 }

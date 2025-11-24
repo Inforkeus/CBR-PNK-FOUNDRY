@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 <form class="runnerCard {{#if system.isDarkMode}}black{{/if}}" autocomplete="off" style="display: {{system.view}};">
   <header>
     <section class="persona {{#if system.angle.hunted}}hunted{{/if}}">
@@ -7,7 +8,7 @@
         <div class="bar">
           <div class="DEBT" style="--progress: {{system.angle.DEBT.value}};">{{localize 'RUNNER.DEBT'}}</div>
           <div class="angelRoll throw"> {{localize 'ROLL.AngelRoll'}} </div>
-          <label class="hunt" for="{{actor._id}}_hunted">
+          <label class="hunt" for="{{actor._id}}_hunted" data-tip="{{localize 'TYPES.Actor.hunter'}}">
             <input id="{{actor._id}}_hunted" name="system.angle.hunted" type="checkbox" {{#if system.angle.hunted}}checked{{/if}}/>
             <i class="fa-solid fa-crosshairs-simple"></i>
           </label>
@@ -44,7 +45,7 @@
         {{{loopTrack -4 4 system.roll.addDice "system.roll.addDice" }}}
         <div class="glichedDice">
           <input name="system.roll.isGlichDice" type="checkbox" id="{{actor._id}}_glichDice" {{#if system.roll.isGlichDice}}checked{{/if}} />
-          <label for="{{actor._id}}_glichDice">
+          <label for="{{actor._id}}_glichDice" data-tip="{{localize 'TOOLTIP.glich_dice'}}">
             <i class="fa-etch fa-solid fa-bug"></i>
           </label>
         </div>

@@ -1,4 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Tiny5&display=swap');
+@font-face {
+	font-family: 'Material Symbols Outlined';
+	font-style: normal;
+	src: url('/CBRPNK/assets/material-symbols/MaterialSymbolsOutlined[FILL\,GRAD\,opsz\,wght].woff2') format('woff');
+}
+
+@font-face {
+	font-family: 'Material Symbols Rounded';
+	font-style: normal;
+	src: url('/CBRPNK/assets/material-symbols/MaterialSymbolsRounded[FILL\,GRAD\,opsz\,wght].woff2') format('woff');
+}
+
+@font-face {
+	font-family: 'Material Symbols Sharp';
+	font-style: normal;
+	src: url('/CBRPNK/assets/material-symbols/MaterialSymbolsSharp[FILL\,GRAD\,opsz\,wght].woff2') format('woff');
+}
 
 :root {
   --white: 255, 255, 255;
@@ -356,6 +373,7 @@ section.gear label {
   font-size: var(--font-smed);
   display: flex;
   gap: 5px;
+  cursor: pointer;
 }
 
 section.gear p {
@@ -544,6 +562,7 @@ label.name {
   padding: 5px 10px;
   background: rgb(var(--yellow));
   text-align: center;
+  cursor: pointer;
 }
 
 .roll label:has(:checked) {
@@ -766,6 +785,7 @@ label.angleOpen {
   color: white;
   font-family: Tiny5;
   font-size: var(--font-huge);
+  cursor: pointer;
 }
 
 strong {
@@ -851,6 +871,7 @@ button.load {
       transparent calc(var(--value)/var(--max)*100%),
       transparent 100%);
   text-align: center;
+  position: relative;
 }
 
 .runnerCard .stack {
@@ -1291,6 +1312,7 @@ input[name="addDice"]:checked+label:not(:nth-child(10)) {
 .gear .stack {
   color: rgb(var(--wierd));
   margin-left: 5px;
+  position: relative;
 }
 
 .runner.overload {
@@ -1336,6 +1358,7 @@ button.item-add {
 
 .aug.GLICHED {
   background: rgb(var(--red));
+  animation: paths 4s step-end infinite;
 }
 
 .dice i.fa-solid {
@@ -1614,5 +1637,180 @@ figure.paused {
 }
 
 label.hunt {
-    padding: 1px 5px;
+  padding: 1px 5px;
+  position: relative;
+}
+
+section.skills p span,
+.approach h3 {
+  cursor: pointer;
+}
+
+.aug .desc {
+  flex-direction: column;
+}
+
+.glichedDice:hover label {
+  position: relative;
+}
+
+.glichedDice:hover label::after {
+  position: absolute;
+  content: attr(data-tip);
+  background: rgb(var(--blue));
+  padding: 5px;
+  border: 3px solid rgb(var(--gray));
+  left: -200%;
+  bottom: -200%;
+}
+
+header.window-header.flexrow.draggable.resizable {
+  background: rgb(var(--blue));
+  color: rgb(var(--white));
+  padding: 0;
+  margin: 0;
+}
+
+a.header-button.control.configure-sheet,
+a.header-button.control.configure-token,
+a.header-button.control.close  {
+  font-size: 0;
+  border: 2px solid rgb(var(--black));
+  margin: 0;
+  padding: 4px 12px;
+}
+
+a.header-button.control.configure-sheet {
+  background: rgb(var(--yellow));
+}
+
+a.header-button.control.close {
+  background: rgb(var(--red));
+}
+
+a.header-button.control.configure-sheet i,
+a.header-button.control.configure-token i,
+a.header-button.control.close i {
+  font-size: large;
+  color: rgb(var(--black))
+}
+
+h4.window-title {
+  font-size: 24px;
+}
+
+a.document-id-link {
+  display: none;
+}
+
+.armors label {
+  cursor: pointer;
+}
+
+.glichedDice:hover label {
+  position: relative;
+}
+
+.hunt:hover::after,
+.glichedDice:hover label::after {
+  position: absolute;
+  content: attr(data-tip);
+  background: rgb(var(--blue));
+  padding: 5px;
+  border: 3px solid rgb(var(--white));
+  top: 100%;
+  right: 0;
+  color: rgb(var(--white));
+}
+
+header.window-header.flexrow.draggable.resizable {
+  background: rgb(var(--blue));
+  color: rgb(var(--white));
+  padding: 0;
+  margin: 0;
+}
+
+a.header-button.control.configure-sheet,
+a.header-button.control.configure-token,
+a.header-button.control.close  {
+  font-size: 0;
+  border: 2px solid rgb(var(--black));
+  margin: 0;
+  padding: 4px 12px;
+}
+
+a.header-button.control.configure-sheet {
+  background: rgb(var(--yellow));
+}
+
+a.header-button.control.close {
+  background: rgb(var(--red));
+}
+
+a.header-button.control.configure-sheet i,
+a.header-button.control.configure-token i,
+a.header-button.control.close i {
+  font-size: large;
+  color: rgb(var(--black))
+}
+
+h4.window-title {
+  font-size: 24px;
+}
+
+a.document-id-link {
+  display: none;
+}
+
+.armors label {
+  cursor: pointer;
+}
+
+section.stress,
+.DEBT,
+.CRED {
+  position: relative;
+}
+.gear .stack:hover::after,
+.harm .track:hover::after,
+.DEBT:hover::after,
+.CRED:hover::after,
+section.stress:hover::after,
+.dots:hover::after {
+  content: '\f3dd\eede\eedb\e15b';
+  font-family: 'Material Symbols Outlined';
+  position: absolute;
+  background: rgb(var(--blue));
+  border: 3px solid rgb(var(--gray));
+  font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+  font-size: 22px;
+}
+.approach .dots:hover::after {
+	right: 100%
+}
+.skills .dots:hover::after {
+	left: 100%
+}
+
+section.stress:hover::after {
+  top: 0;
+  right: -20px;
+}
+
+.DEBT:hover::after,
+.CRED:hover::after {
+  top: 105%;
+  color: rgb(var(--white));
+  left: 0;
+}
+
+.gear .stack:hover::after,
+.harm .track:hover::after{
+  bottom: 100%;
+  left: 0;
+  color: rgb(var(--white));
+}
+
+.angelRoll.throw {
+  cursor: pointer;
 }
