@@ -9,7 +9,7 @@
       "url": "https://github.com/P4NTY/"
     }
   ],
-  "version": "1.01",
+  "version": "1.05",
   "compatibility": {
     "minimum": 11,
     "verified": 13,
@@ -42,5 +42,5 @@
   "url": "https://github.com/P4NTY/CBR-PNK-FOUNDRY",
   "background": "systems/CBRPNK/assets/CBRPNK_splash.webp",
   "manifest": "https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/latest/download/system.json",
-  "download": "https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/download/1.01/CBRPNK.zip"
+  "download": "https://github.com/P4NTY/CBR-PNK-FOUNDRY/releases/download/1.05/CBRPNK.zip"
 }
