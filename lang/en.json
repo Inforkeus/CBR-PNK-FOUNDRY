@@ -11,6 +11,7 @@
     },
     "EXPAND": "EXPAND",
     "COLLAPSE": "COLLAPSE",
+    "WYRF": "Why you runnig for?",
     "EDIT": "EDIT",
     "RUNNER": {
         "SR": "SPECIAL RESISTANCE",
@@ -138,9 +139,9 @@
         "ResistRoll": "RESIST ROLL",
         "ActionRoll": "ACTION ROLL",
         "BreathRoll": "TAKE A BREATH",
-        "AngelRoll": "ANGLE ROLL"
+        "AngleRoll": "ANGLE ROLL"
     },
-    "ANGEL": {
+    "ANGLE": {
         "crit": {
             "title": "SUCCEEDED REMARKABLY",
             "desc": "After all, other players are done. Choose who you offer a hand to-improve thier result by one step. Describe togheter how this works in the fiction."

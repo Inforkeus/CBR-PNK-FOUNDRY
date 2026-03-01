@@ -11,6 +11,7 @@
     },
     "EXPAND": "ROZWIŃ",
     "COLLAPSE": "ZWIŃ",
+    "WYRF": "Why you runnig for?",
     "EDIT": "EDYTUJ",
     "RUNNER": {
         "SR": "SPCEJALNY PANCERZ",
@@ -138,9 +139,9 @@
         "ResistRoll": "ODPIERANIE",
         "ActionRoll": "AKCJA",
         "BreathRoll": "ODDECH",
-        "AngelRoll": "OPATRZNOŚĆ"
+        "AngleRoll": "OPATRZNOŚĆ"
     },
-    "ANGEL": {
+    "ANGLE": {
         "crit": {
             "title": "JESTEŚ DIAMENTEM",
             "desc": "Poczekaj, aż inni gracze rzucą. Wybierz, komu podasz pomocną rękę – popraw jego wynik o jeden stopień. Opiszcie wspólnie, jak to wygląda."

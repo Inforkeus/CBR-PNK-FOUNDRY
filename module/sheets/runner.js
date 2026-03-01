@@ -58,7 +58,7 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         }
 
         if ( event.target.classList.contains('resistRoll') ) this.resistRoll();
-        else if ( event.target.classList.contains('angelRoll') ) this.angelRoll();
+        else if ( event.target.classList.contains('angleRoll') ) this.angleRoll();
         else if ( event.target.classList.contains('actionRoll') ) this.actionRoll();
         else if ( event.target.classList.contains('breathRoll') ) this.breathRoll();
     }
@@ -467,7 +467,7 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         }
     }
 
-    async angelRoll() {
+    async angleRoll() {
         const dataRoll = {
             ...this.actor.system.roll,
             dices: `${this.actor.system.approach[this.actor.system.roll.approach].dice}`
@@ -483,7 +483,7 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
             img: this.actor.img,
             name: this.actor.name,
             desc: "",
-            action: game.i18n.localize("ROLL.AngelRoll"),
+            action: game.i18n.localize("ROLL.AngleRoll"),
             approach: game.i18n.localize(`Approach.${dataRoll.approach}.name`)
         };
         
@@ -497,24 +497,24 @@ export default class cbrRunner extends foundry.appv1.sheets.ActorSheet {
         }
 
         if (rollResult.filter( dice => dice == 6).length == 2) {
-            templateData.title = game.i18n.localize("ANGEL.crit.title");
+            templateData.title = game.i18n.localize("ANGLE.crit.title");
             templateData.class = "critical";
-            templateData.desc = game.i18n.localize("ANGEL.crit.desc");
+            templateData.desc = game.i18n.localize("ANGLE.crit.desc");
         }
         else if (Math.max(...rollResult) == 6 ) {
-            templateData.title = game.i18n.localize("ANGEL.succ.title");
+            templateData.title = game.i18n.localize("ANGLE.succ.title");
             templateData.class = "good";
-            templateData.desc = game.i18n.localize("ANGEL.succ.desc");
+            templateData.desc = game.i18n.localize("ANGLE.succ.desc");
         }
         else if (rollResult.filter( dice => dice == 4 || dice == 5).length ) {
-            templateData.title = game.i18n.localize("ANGEL.part.title");
+            templateData.title = game.i18n.localize("ANGLE.part.title");
             templateData.class = "consequence";
-            templateData.desc = game.i18n.localize("ANGEL.part.desc");
+            templateData.desc = game.i18n.localize("ANGLE.part.desc");
         }
         else {
-            templateData.title = game.i18n.localize("ANGEL.fail.title");
+            templateData.title = game.i18n.localize("ANGLE.fail.title");
             templateData.class = "bad";
-            templateData.desc = game.i18n.localize("ANGEL.fail.desc");
+            templateData.desc = game.i18n.localize("ANGLE.fail.desc");
         }
 
         rollResult.forEach( (dice,index) => {
